@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ServiceOrder::Application.load_tasks
+ServiceOrders::Application.load_tasks

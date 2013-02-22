@@ -11,12 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222005053) do
+ActiveRecord::Schema.define(:version => 20130222010242) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "service_orders", :force => true do |t|
+    t.integer  "client_id"
+    t.string   "module"
+    t.string   "project"
+    t.date     "date"
+    t.string   "reason"
+    t.string   "requestor"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.string   "non_billable_hours"
+    t.string   "other_billable_hours"
+    t.text     "description"
+    t.text     "comment"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "service_orders", ["client_id"], :name => "index_service_orders_on_client_id"
 
 end

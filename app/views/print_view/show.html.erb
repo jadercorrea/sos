@@ -1,0 +1,65 @@
+<div class="header">
+  <p>
+    <b>Client:</b>
+    <%= @service_order.client.name %>
+  </p>
+</div>
+
+<p>
+  <b>Module:</b>
+  <%= @service_order.module %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @service_order.project %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @service_order.date %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%= @service_order.reason %>
+</p>
+
+<p>
+  <b>Requestor:</b>
+  <%= @service_order.requestor %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @service_order.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @service_order.end_time %>
+</p>
+
+<p>
+  <b>Non billable hours:</b>
+  <%= @service_order.non_billable_hours %>
+</p>
+
+<p>
+  <b>Other billable hours:</b>
+  <%= @service_order.other_billable_hours %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @service_order.description %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @service_order.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_order_path(@service_order) %> |
+<%= link_to 'Back', service_orders_path %>
