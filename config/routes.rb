@@ -1,4 +1,7 @@
 ServiceOrders::Application.routes.draw do
+  resources :users
+
+
   resources :service_orders
   resources :clients
 

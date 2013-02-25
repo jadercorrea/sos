@@ -26,6 +26,7 @@ class ServiceOrdersController < ApplicationController
   def new
     @service_order = ServiceOrder.new
     @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.all.map { |n| [n.name, n.id] }
 
     respond_to do |format|
       format.html # new.html.erb

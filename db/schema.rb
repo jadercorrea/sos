@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222010242) do
+ActiveRecord::Schema.define(:version => 20130223160417) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -34,8 +34,16 @@ ActiveRecord::Schema.define(:version => 20130222010242) do
     t.text     "comment"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.integer  "user_id"
   end
 
   add_index "service_orders", ["client_id"], :name => "index_service_orders_on_client_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "mail"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
