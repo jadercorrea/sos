@@ -37,6 +37,11 @@ class ServiceOrdersController < ApplicationController
   # GET /service_orders/1/edit
   def edit
     @service_order = ServiceOrder.find(params[:id])
+    #@clients = Client.find(@service_order.client_id)
+    #@users = User.find(@service_order.user_id)
+
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.all.map { |n| [n.name, n.id] }
   end
 
   # POST /service_orders

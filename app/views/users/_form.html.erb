@@ -19,6 +19,17 @@
     <%= f.label :mail %><br />
     <%= f.text_field :mail %>
   </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :role_id, "Role" %><br />
+    <%= f.select :role_id, options_for_select(@roles) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

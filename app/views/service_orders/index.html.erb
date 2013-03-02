@@ -1,4 +1,4 @@
-<h1>Listing service_orders</h1>
+<h1>Listing Service Orders</h1>
 
 <table>
   <tr>
@@ -9,12 +9,6 @@
     <th>Date</th>
     <th>Reason</th>
     <th>Requestor</th>
-    <th>Start time</th>
-    <th>End time</th>
-    <th>Non billable hours</th>
-    <th>Other billable hours</th>
-    <th>Description</th>
-    <th>Comment</th>
     <th></th>
     <th></th>
     <th></th>
@@ -29,12 +23,6 @@
     <td><%= service_order.date %></td>
     <td><%= service_order.reason %></td>
     <td><%= service_order.requestor %></td>
-    <td><%= service_order.start_time %></td>
-    <td><%= service_order.end_time %></td>
-    <td><%= service_order.non_billable_hours %></td>
-    <td><%= service_order.other_billable_hours %></td>
-    <td><%= service_order.description %></td>
-    <td><%= service_order.comment %></td>
     <td><%= link_to 'Show', service_order %></td>
     <td><%= link_to 'Edit', edit_service_order_path(service_order) %></td>
     <td><%= link_to 'Destroy', service_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>

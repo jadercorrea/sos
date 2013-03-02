@@ -2,12 +2,12 @@
 
 <p>
   <b>User:</b>
-  <%= @service_order.user %>
+  <%= @service_order.user.name %>
 </p>
 
 <p>
   <b>Client:</b>
-  <%= @service_order.client %>
+  <%= @service_order.client.name %>
 </p>
 
 <p>
@@ -64,7 +64,6 @@
   <b>Comment:</b>
   <%= @service_order.comment %>
 </p>
-
 
 <%= link_to 'Edit', edit_service_order_path(@service_order) %> |
 <%= link_to 'Back', service_orders_path %>
