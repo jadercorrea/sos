@@ -1,5 +1,3 @@
-<h1>Listing Service Orders</h1>
-
 <table>
   <tr>
     <th>User</th>
@@ -15,7 +13,7 @@
   </tr>
 
 <% @service_orders.each do |service_order| %>
-  <tr>
+  <tr class=<%=cycle('even', 'odd')%>>
     <td><%= service_order.user.name %></td>
     <td><%= service_order.client.name %></td>
     <td><%= service_order.module %></td>

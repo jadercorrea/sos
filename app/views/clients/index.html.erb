@@ -1,5 +1,3 @@
-<h1>Listing clients</h1>
-
 <table>
   <tr>
     <th>Name</th>
@@ -9,7 +7,7 @@
   </tr>
 
 <% @clients.each do |client| %>
-  <tr>
+  <tr class=<%=cycle('even', 'odd')%>>
     <td><%= client.name %></td>
     <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>

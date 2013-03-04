@@ -1,5 +1,3 @@
-<h1>Listing roles</h1>
-
 <table>
   <tr>
     <th>Name</th>
@@ -9,7 +7,7 @@
   </tr>
 
 <% @roles.each do |role| %>
-  <tr>
+  <tr class=<%=cycle('even', 'odd')%>>
     <td><%= role.name %></td>
     <td><%= link_to 'Show', role %></td>
     <td><%= link_to 'Edit', edit_role_path(role) %></td>

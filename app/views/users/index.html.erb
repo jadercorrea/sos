@@ -1,5 +1,3 @@
-<h1>Listing users</h1>
-
 <table>
   <tr>
     <th>Name</th>
@@ -11,7 +9,7 @@
   </tr>
 
 <% @users.each do |user| %>
-  <tr>
+  <tr class=<%=cycle('even', 'odd')%>>
     <td><%= user.name %></td>
     <td><%= user.mail %></td>
     <td><%= user.role.name %></td>

@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: sqlserver
-  host: 192.168.1.5
+  host: 192.168.167.202
   #host: 192.168.25.12
   port: 1433
   database: railsdev
