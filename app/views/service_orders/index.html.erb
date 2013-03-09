@@ -21,10 +21,11 @@
     <td><%= service_order.date %></td>
     <td><%= service_order.reason %></td>
     <td><%= service_order.requestor %></td>
-    <td><%= link_to 'Show', service_order %></td>
+    <!--<td><%= link_to 'Show', service_order %></td> -->
+    <td><%= link_to 'Show', print_view_path(service_order) %></td>
     <td><%= link_to 'Edit', edit_service_order_path(service_order) %></td>
     <td><%= link_to 'Destroy', service_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= link_to 'For print', print_view_path(service_order) %></td>
+    <td><%= link_to 'For print', print_view_path(service_order),:target => "_blank" %></td>
   </tr>
 <% end %>
 </table>

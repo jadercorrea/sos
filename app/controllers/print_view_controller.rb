@@ -3,3 +3,5 @@ class PrintViewController < ApplicationController
     @service_order = ServiceOrder.find(params[:id])
   end
 end
+
+layout false
