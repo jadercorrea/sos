@@ -1,4 +1,6 @@
 class ServiceOrdersController < ApplicationController
+  
+  before_filter :authenticate_user!
   # GET /service_orders
   # GET /service_orders.json
   def index

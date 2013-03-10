@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 gem 'devise'
+gem 'sqlite3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
