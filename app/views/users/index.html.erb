@@ -13,13 +13,13 @@
     <td><%= user.name %></td>
     <td><%= user.mail %></td>
     <td><%= user.role.name %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to image_tag('icon_show.png', :size => '20x20'), user %></td>
+    <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_user_path(user) %></td>
+    <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to image_tag('icon_new.png', :size => '30x30'), new_user_path %>
