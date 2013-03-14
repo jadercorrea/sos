@@ -17,10 +17,10 @@
 		<div class='menu'>
 			<h2 class='hide'>Menu:</h2>
 			<ul>
-				<li><a <%= link_to 'Service Orders', service_orders_path %> </li>
-				<li><a <%= link_to 'Clients', clients_path %> </li>
-				<li><a <%= link_to 'Users', users_path %> </li>
-				<li><a <%= link_to 'Roles', roles_path %> </li>
+				<li><%= link_to 'Service Orders', service_orders_path, class: current("service_orders") %> </li>
+				<li><%= link_to 'Clients', clients_path,class: current("clients")  %> </li>
+				<li><%= link_to 'Users', users_path,class: current("users")  %> </li>
+				<li><%= link_to 'Roles', roles_path,class: current("roles")  %> </li>
 			</ul>
 		</div>
 		<div class='table'>
@@ -30,3 +30,5 @@
 </div>	
 </body>
 </html>
+
+<!--<%= params.inspect %> --> 
