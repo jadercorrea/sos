@@ -1,5 +1,31 @@
-// Place all the styles related to the service_orders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+td {
+  &.name {
+    width: 70px;
+  }
+  &.client {
+    width: 70px;
+  }
+  &.module {
+    width: 85px;
+  }
 
+  &.project {
+    width: 135px;
+  }
 
+  &.date {
+    width: 70px;
+  }
+  
+  &.reason {
+    width: 135px;
+  }
+
+  &.requestor {
+    width: 70px;
+  }
+
+  &.image {
+    width: 20px;
+  }
+}
