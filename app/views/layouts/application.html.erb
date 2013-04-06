@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= params[:controller] %>">
 
 <div class='main'>	
 	<div class='header'>
@@ -16,7 +16,7 @@
 	<div class='body'>
 		<div class='menu'>
 			<p class="notice"><%= notice %></p>
-      		<p class="alert"><%= alert %></p>
+      <p class="alert"><%= alert %></p>
 			
 			<h2 class='hide'>Menu:</h2>
 			<ul>

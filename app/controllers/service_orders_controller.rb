@@ -1,6 +1,5 @@
 class ServiceOrdersController < ApplicationController
   
-  before_filter :authenticate_user!
   # GET /service_orders
   # GET /service_orders.json
   def index
@@ -8,7 +7,7 @@ class ServiceOrdersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @service_orders }
+      format.json { render json: @service_order }
     end
   end
 

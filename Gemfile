@@ -17,4 +17,10 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'thin'
+  gem 'pry-debugger'
+end
+
+group :development do
+  gem 'quiet_assets'
 end
