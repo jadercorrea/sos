@@ -14,7 +14,7 @@
     <td><%= user.email %></td>
     <td><%= user.role.name %></td>
     <td><%= link_to image_tag('icon_show.png', :size => '20x20'), user %></td>
-    <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_user_path(user) %></td>
+    <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_user_path(user), id: "user_#{user.id}" %></td>
     <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

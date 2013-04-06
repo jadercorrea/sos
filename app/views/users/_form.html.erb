@@ -26,6 +26,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.text_field :password_confirmation, html: { autocomplete: "off" } %>
+  </div>
+
+  <div class="field">
     <%= f.label :role_id, "Role" %><br />
     <%= f.select :role_id, options_for_select(@roles) %>
   </div>

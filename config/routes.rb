@@ -1,15 +1,12 @@
 ServiceOrders::Application.routes.draw do
-  
-  devise_for :users, :controllers => {
-    :sessions => "sessions",
-    :registrations => "users"
-  }
+
+  devise_for :users, :controllers => { :sessions => "sessions" }
 
   resources :roles
   resources :users
   resources :service_orders
   resources :clients
-  
+
   match 'print_view/:id' => 'print_view#show ', as: :print_view
 
   # The priority is based upon order of creation:

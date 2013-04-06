@@ -24,3 +24,11 @@ end
 group :development do
   gem 'quiet_assets'
 end
+
+group :test do
+  gem 'factory_girl'
+  gem 'capybara', '1.1.4'
+  gem 'poltergeist', '1.0.2'
+  gem 'launchy'
+  gem 'database_cleaner'
+end
