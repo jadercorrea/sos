@@ -12,7 +12,13 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/tmp
 /tmp/*
+/tmp/cache
 
 # Ignore database.
 config/database.yml
+custom_plan.rb
+zeus.json
+*.swp
+tags
