@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317184944) do
+ActiveRecord::Schema.define(:version => 20130402230059) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130317184944) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "user_id"
+    t.string   "total_time"
   end
 
   add_index "service_orders", ["client_id"], :name => "index_service_orders_on_client_id"
