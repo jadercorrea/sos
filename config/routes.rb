@@ -5,6 +5,7 @@ ServiceOrders::Application.routes.draw do
     :registrations => "users"
   }
 
+  resources :tickets
   resources :roles
   resources :users
   resources :service_orders
