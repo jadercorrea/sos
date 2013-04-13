@@ -38,17 +38,17 @@ class ServiceOrdersController < ApplicationController
   # GET /service_orders/1/edit
   def edit
     @service_order = ServiceOrder.find(params[:id])
-    #@clients = Client.find(@service_order.client_id)
-    #@users = User.find(@service_order.user_id)
-
     @clients = Client.all.map { |m| [m.name, m.id] }
     @users = User.all.map { |n| [n.name, n.id] }
+
   end
 
   # POST /service_orders
   # POST /service_orders.json
   def create
     @service_order = ServiceOrder.new(params[:service_order])
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.all.map { |n| [n.name, n.id] }
 
     respond_to do |format|
       if @service_order.save
@@ -65,15 +65,13 @@ class ServiceOrdersController < ApplicationController
   # PUT /service_orders/1.json
   def update
     @service_order = ServiceOrder.find(params[:id])
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.all.map { |n| [n.name, n.id] }
 
-    respond_to do |format|
-      if @service_order.update_attributes(params[:service_order])
-        format.html { redirect_to @service_order, notice: 'Service order was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @service_order.errors, status: :unprocessable_entity }
-      end
+    if @service_order.update_attributes(params[:service_order])
+      redirect_to @service_order, notice: 'Service order was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 

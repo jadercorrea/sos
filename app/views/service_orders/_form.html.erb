@@ -12,11 +12,11 @@
   <% end %>
   <div class="field">
     <%= f.label :user_id, "User" %><br />
-    <%= f.select :user_id, options_for_select(@users) %>
+    <%= f.select :user_id, options_for_select(@users, @service_order.user_id) %>
   </div>
   <div class="field">
     <%= f.label :client_id, "Cliente" %><br />
-    <%= f.select :client_id, options_for_select(@clients) %>
+    <%= f.select :client_id, options_for_select(@clients, @service_order.client_id) %>
   </div>
   <div class="field">
     <%= f.label :module %><br />
@@ -69,4 +69,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <!--<%= @service_order.inspect %> <br><br>
+  <%= @service_order.client_id.class %> <br><br>
+  <%= @clients.inspect %> -->
 <% end %>

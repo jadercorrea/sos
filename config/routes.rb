@@ -1,6 +1,9 @@
 ServiceOrders::Application.routes.draw do
 
-  devise_for :users, :controllers => { :sessions => "sessions" }
+  devise_for :users, :controllers => {
+    :sessions => "sessions",
+    :registrations => "users"
+  }
 
   resources :roles
   resources :users
