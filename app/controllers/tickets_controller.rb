@@ -1,13 +1,9 @@
 class TicketsController < ApplicationController
+  before_filter :load_clients, only: [:new]
   # GET /tickets
   # GET /tickets.json
   def index
     @tickets = Ticket.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tickets }
-    end
   end
 
   # GET /tickets/1
@@ -25,11 +21,7 @@ class TicketsController < ApplicationController
   # GET /tickets/new.json
   def new
     @ticket = Ticket.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @ticket }
-    end
+    @ticket.messages.build
   end
 
   # GET /tickets/1/edit
@@ -79,5 +71,11 @@ class TicketsController < ApplicationController
       format.html { redirect_to tickets_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def load_clients
+    @clients = Client.all.map { |m| [m.name, m.id] }
   end
 end

@@ -10,14 +10,14 @@
 
 <% @tickets.each do |ticket| %>
   <tr>
-    <td><%= ticket.client_id %></td>
-    <td><%= link_to 'Show', ticket %></td>
-    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-    <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= ticket.client.name %></td>
+    <td><%= link_to image_tag('icon_show.png', :size => '20x20'), ticket %></td>
+    <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_ticket_path(ticket) %></td>
+    <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Novo ticket', new_ticket_path %>
+<%= link_to image_tag('icon_new.png', :size => '30x30'), new_ticket_path %>
