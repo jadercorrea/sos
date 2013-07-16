@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20130814014546) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "mail"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.integer  "role_id"
