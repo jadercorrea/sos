@@ -10,9 +10,9 @@ ServiceOrders::Application.routes.draw do
   resources :users
   resources :service_orders
   resources :clients
+  resources :print_view, only: [:show]
 
-  match 'print_view/:id' => 'print_view#show ', as: :print_view
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

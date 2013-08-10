@@ -1,9 +1,7 @@
-/* @jader_correa */
-
 (function($) {
 	$.fn.total_os = function() {
 		$(this).change(function(key){
-		 	var startField  = $('#service_order_start_time');
+			 	var startField  = $('#service_order_start_time');
 		    var endField    = $('#service_order_end_time');
 		    var minusField  = $('#service_order_non_billable_hours');
 		    var plusField   = $('#service_order_other_billable_hours');

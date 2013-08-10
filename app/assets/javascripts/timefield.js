@@ -1,5 +1,3 @@
-/* @jader_correa */
-
 (function($) {
 	$.fn.timefield = function() {
 
