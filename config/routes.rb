@@ -2,7 +2,8 @@ ServiceOrders::Application.routes.draw do
 
   devise_for :users, :controllers => {
     :sessions => "sessions",
-    :registrations => "users"
+    :registrations => "users",
+    :invitations => 'invitations'
   }
 
   resources :tickets

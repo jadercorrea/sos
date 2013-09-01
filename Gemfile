@@ -6,6 +6,7 @@ gem 'pg'
 gem 'devise'
 gem 'sqlite3'
 gem 'protected_attributes'
+gem 'devise_invitable', :github => 'scambra/devise_invitable'
 
 group :assets do
   gem 'sass-rails', '~> 4.0.0'
