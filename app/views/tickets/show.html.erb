@@ -1,16 +1,61 @@
-<p id="notice"><%= notice %></p>
+<table>
+  <tr>
+    <th>Client</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Situation</th>
+    <th>User</th>
+  </tr>
+  <tr>
+    <td><%= @ticket.client.name %></td>
+    <td><%= @ticket.title %></td>
+    <td><%= raw(@ticket.description.gsub(/\n/,"<br />"))%></td>
+    <td><%= @ticket.situation %></td>
+    <td><%= @ticket.user.name %></td>
+  </tr>
+</table>
+<br/>
 
-<p>
-  <b>Cliente:</b>
-  <%= @ticket.client.name %>
-</p>
+<% if @ticket.comments.exists? %>
 
-<% @ticket.messages.each do |message| %>
+  <h2>Comments </h3>
+  <br/>
+
+  <table>
+    
+    <tr>
+      <th>User</th>
+      <th>Comment</th>
+      <th>Created at</th>
+      <th></th>
+    </tr>
+    
+    <% @ticket.comments.each do |comment| %>
+      <% bg=cycle('even','odd') %>
+      <tr class=<%=bg%>>
+        <td><%= comment.user.name %></td>
+        <td><%= raw(comment.message.gsub(/\n/,"<br />")) %></td>  
+        <td><%= comment.created_at.strftime('%d/%m/%y - %H:%M') %></td>
+        <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), ticket_comment_path(@ticket,comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% end %>
+<br/>
+
+<h2>Add a comment: </h2>
+<%= form_for([@ticket, @ticket.comments.build]) do |f| %>
+  <!--%= @ticket.comments.inspect %> -->
   <p>
-    <%= message.text %>
+    <%= f.label :message %> <br />
+    <%= f.text_area :message %>
+  </p>
+
+  <p>
+    <%= f.submit %>
   </p>
 <% end %>
-
 
 <%= link_to image_tag('icon_edit.png', :size => '30x30'), edit_ticket_path(@ticket) %> 
 <%= link_to image_tag('icon_back.png', :size => '30x30'), tickets_path %>

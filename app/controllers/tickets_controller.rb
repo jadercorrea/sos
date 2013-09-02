@@ -1,9 +1,13 @@
 class TicketsController < ApplicationController
-  before_filter :load_clients, only: [:new]
   # GET /tickets
   # GET /tickets.json
   def index
     @tickets = Ticket.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @tickets }
+    end
   end
 
   # GET /tickets/1
@@ -21,18 +25,28 @@ class TicketsController < ApplicationController
   # GET /tickets/new.json
   def new
     @ticket = Ticket.new
-    @ticket.messages.build
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.all.map { |n| [n.name, n.id] }
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @ticket }
+    end
   end
 
   # GET /tickets/1/edit
   def edit
     @ticket = Ticket.find(params[:id])
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.all.map { |n| [n.name, n.id] }
   end
 
   # POST /tickets
   # POST /tickets.json
   def create
     @ticket = Ticket.new(params[:ticket])
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.all.map { |n| [n.name, n.id] }
 
     respond_to do |format|
       if @ticket.save
@@ -49,6 +63,8 @@ class TicketsController < ApplicationController
   # PUT /tickets/1.json
   def update
     @ticket = Ticket.find(params[:id])
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.all.map { |n| [n.name, n.id] }
 
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])
@@ -71,11 +87,5 @@ class TicketsController < ApplicationController
       format.html { redirect_to tickets_url }
       format.json { head :no_content }
     end
-  end
-
-  private
-
-  def load_clients
-    @clients = Client.all.map { |m| [m.name, m.id] }
   end
 end

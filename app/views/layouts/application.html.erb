@@ -12,11 +12,21 @@
 	<div class='header'>
 		<h1>Service Order</h1>
 		<p class='slogan'>You ask, we deliver it </P>	
-	</div>
+
+		<div class="imput">
+  			<div class = "search">
+		    	<label for="search">
+		    		Filtro: 
+		    	</label>
+		    	<input class="filter" id="filter">
+			</div>
+ 	 	</div>
+  	</div>
+
 	<div class='body'>
 		<div class='menu'>
 			
-			<h2 class='hide'>Menu:</h2>
+			<h2 class='none'>Menu:</h2>
 			<ul>
 				<li><%= link_to 'Service Orders', service_orders_path, class: current("service_orders") %> </li>
 				<li><%= link_to 'Tickets', tickets_path,class: current("tickets")  %> </li>
@@ -34,6 +44,3 @@
 </body>
 </html>
 
-<!--<%= params.inspect %> 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>--> 

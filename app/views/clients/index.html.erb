@@ -1,6 +1,11 @@
-<table>
+<table id="table">
   <tr>
     <th>Name</th>
+    <th>Price</th>
+    <th>Billable Hours</th>
+    <th>Taxes</th>  
+    <th>Lunch</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +14,11 @@
 <% @clients.each do |client| %>
   <tr class=<%=cycle('even', 'odd')%>>
     <td><%= client.name %></td>
+    <td><%= client.price %></td>
+    <td><%= client.billable_hours %></td>
+    <td><%= client.taxes %></td>
+    <td><%= client.lunch %></td>
+    <td><%= client.status %></td>
     <td><%= link_to image_tag('icon_show.png', :size => '20x20'), client %></td>
     <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_client_path(client) %></td>
     <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), client, method: :delete, data: { confirm: 'Are you sure?' } %></td>

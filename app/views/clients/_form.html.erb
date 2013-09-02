@@ -15,6 +15,26 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= number_to_currency(f.text_field :price, separator: ",", raise: true ) %>
+  <div class="field">
+    <%= f.label :billable_hours %><br />
+    <%= f.text_field :billable_hours, :class => 'js_time' %>
+  </div>
+  <div class="field">
+    <%= f.label :taxes %><br />
+    <%= f.text_field :taxes %>
+  </div>
+  <div class="field">
+    <%= f.label :lunch %><br />
+    <%= f.text_field :lunch %>
+  </div> 
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div> 
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

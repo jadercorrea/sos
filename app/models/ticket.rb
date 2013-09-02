@@ -1,8 +1,7 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :client_id, :messages_attributes
-
-  has_many :messages, class_name: "TicketMessage"
   belongs_to :client
+  belongs_to :user
+  attr_accessible :client_id, :description, :situation, :title, :user_id
 
-  accepts_nested_attributes_for :messages
+  has_many :comments
 end

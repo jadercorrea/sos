@@ -2,14 +2,19 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
-gem 'pg'
+#gem 'pg'
+#gem 'tiny_tds'
+#gem 'activerecord-sqlserver-adapter'
+#gem 'ruby-odbc'
 gem 'devise'
-gem 'sqlite3'
+gem 'activerecord-jdbcmssql-adapter', platforms: :jruby
+gem 'sqlite3', platforms: :mri
+#gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :mri
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -17,8 +22,7 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'thin'
-  gem 'pry-debugger'
+  gem 'thin', :platforms => :mri
 end
 
 group :development do

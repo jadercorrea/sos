@@ -1,21 +1,28 @@
-<h1>Listing tickets</h1>
-
-<table>
+<table id="table">
   <tr>
     <th>Client</th>
+    <th>Title</th>
+    <th>Situation</th>
+    <th>User</th>
+    <th>Created at</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @tickets.each do |ticket| %>
-  <tr>
-    <td><%= ticket.client.name %></td>
-    <td><%= link_to image_tag('icon_show.png', :size => '20x20'), ticket %></td>
-    <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_ticket_path(ticket) %></td>
-    <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <% @tickets.each do |ticket| %>
+    <% bg=cycle('even','odd')%>
+    <tr class=<%=bg%>>
+      <td><%= ticket.client.name %></td>
+      <td><%= ticket.title %></td>
+      <td><%= ticket.situation %></td>
+      <td><%= ticket.user.name %></td>
+      <td><%= ticket.created_at.strftime('%d/%m/%y') %></td>
+      <td><%= link_to image_tag('icon_show.png', :size => '20x20'), ticket %></td>
+      <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_ticket_path(ticket) %></td>
+      <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />

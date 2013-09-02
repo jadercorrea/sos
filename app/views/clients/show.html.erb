@@ -4,8 +4,27 @@
   <b>Name:</b>
   <%= @client.name %>
 </p>
+<p>
+  <b>Price:</b>
+  <%= @client.price %>
+</p>
+<p>
+  <b>Billable hours:</b>
+  <%= @client.billable_hours %>
+</p>
+<p>
+  <b>Taxes:</b>
+  <%= @client.taxes %>
+</p>
+<p>
+  <b>Lunch:</b>
+  <%= @client.lunch %>
+</p>
+<p>
+  <b>Status:</b>
+  <%= @client.status %>
+</p>
 
-
-<%= link_to image_tag('icon_edit.png', :size => '30x30'), edit_client_path(@client) %> |
-<%= link_to image_tag('icon_back.png', :size => '30x30'), clients_path %> |
+<%= link_to image_tag('icon_edit.png', :size => '30x30'), edit_client_path(@client) %> 
+<%= link_to image_tag('icon_back.png', :size => '30x30'), clients_path %> 
 <%= link_to image_tag('icon_new.png' , :size => '30x30'), new_client_path %>
