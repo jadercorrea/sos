@@ -6,6 +6,8 @@
 
 # Ignore bundler config
 /.bundle
+/*.stackdump
+/exit
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -15,6 +17,8 @@
 /tmp
 /tmp/*
 /tmp/cache
+/vendor
+/vendor/*
 
 # Ignore database.
 config/database.yml
