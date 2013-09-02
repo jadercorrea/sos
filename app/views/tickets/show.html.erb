@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @ticket.client.name %>
+</p>
+
+<% @ticket.messages.each do |message| %>
+  <p>
+    <%= message.text %>
+  </p>
+<% end %>
+
+
+<%= link_to image_tag('icon_edit.png', :size => '30x30'), edit_ticket_path(@ticket) %> 
+<%= link_to image_tag('icon_back.png', :size => '30x30'), tickets_path %>

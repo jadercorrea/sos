@@ -1,0 +1,20 @@
+<%= form_for(@ticket) do |f| %>
+
+  <div class="field">
+    <%= f.label :client_id, "Client" %><br>
+    <%= f.select :client_id, options_for_select(@clients) %>
+  </div>
+ 
+  <br>
+  <div class = "messages">
+    <%= f.label :text, "Message" %> <br>
+    <%= f.fields_for :messages do |m| %>
+      <%= m.text_area :text %>
+    <% end %>
+  </div>
+
+  <br>
+  <div class="actions">
+    <%= f.submit "Create ticket" %>
+  </div>
+<% end %>
