@@ -1,11 +1,19 @@
 ServiceOrders::Application.routes.draw do
+
+  devise_for :users, :controllers => {
+    :sessions => "sessions",
+    :registrations => "users",
+    :invitations => 'invitations'
+  }
+
+  resources :tickets
   resources :roles
   resources :users
   resources :service_orders
   resources :clients
-  
-  match 'print_view/:id' => 'print_view#show', as: :print_view
+  resources :print_view, only: [:show]
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -55,7 +63,7 @@ ServiceOrders::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'service_orders#index'
 
   # See how all your routes lay out with "rake routes"
 

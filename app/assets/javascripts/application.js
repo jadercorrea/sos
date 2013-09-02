@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require scripts.js
+//= require timefield.js
+//= require total_os.js
 

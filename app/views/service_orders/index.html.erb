@@ -5,8 +5,8 @@
     <th>Module</th>
     <th>Project</th>
     <th>Date</th>
-    <th>Reason</th>
     <th>Requestor</th>
+    <th>Total</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,18 +17,17 @@
   <% bg=cycle('even', 'odd')%>
 
   <tr class=<%=bg%>>
-    <td><%= service_order.user.name %></td>
-    <td><%= service_order.client.name %></td> 
-    <td><%= service_order.module %></td>
-    <td><%= service_order.project %></td>
-    <td><%= service_order.date %></td>
-    <td><%= service_order.reason %></td>
-    <td><%= service_order.requestor %></td>
-    <!--<td><%= link_to 'Show', service_order %></td> -->
-    <td><%= link_to image_tag('icon_show.png', :size => '20x20'), print_view_path(service_order) %></td>
-    <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_service_order_path(service_order) %></td>
-    <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), service_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= link_to image_tag('icon_print.png', :size => '20x20'), print_view_path(service_order),:target => "_blank" %></td>
+    <td class="name"><%= service_order.user.name %></td>
+    <td class="client"><%= service_order.client.name %></td> 
+    <td class="module"><%= service_order.module %></td>
+    <td class="project"><%= service_order.project %></td>
+    <td class="date"><%= service_order.date %></td>
+    <td class="requestor"><%= service_order.requestor %></td>
+    <td class="total_os"><%= service_order.total_time %></td>
+    <td class="image"><%= link_to image_tag('icon_show.png', :size => '20x20'), service_order_path(service_order) %></td>
+    <td class="image"><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_service_order_path(service_order) %></td>
+    <td class="image"><%= link_to image_tag('icon_destroy.png', :size => '20x20'), service_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="image"><%= link_to image_tag('icon_print.png', :size => '20x20'), print_view_path(service_order),:target => "_blank" %></td>
   </tr>
 <% end %>
 </table>

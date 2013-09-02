@@ -16,13 +16,18 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :mail %><br />
-    <%= f.text_field :mail %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.text_field :password, html: { autocomplete: "off" } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.text_field :password_confirmation, html: { autocomplete: "off" } %>
   </div>
 
   <div class="field">
