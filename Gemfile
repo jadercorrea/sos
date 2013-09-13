@@ -6,7 +6,6 @@ gem 'pg'
 gem 'devise'
 gem 'sqlite3'
 gem 'protected_attributes'
-gem 'devise_invitable', :github => 'scambra/devise_invitable'
 
 group :assets do
   gem 'sass-rails', '~> 4.0.0'
@@ -32,5 +31,5 @@ group :test do
   gem 'capybara', '1.1.4'
   gem 'poltergeist', '1.0.2'
   gem 'launchy'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '1.0.1'
 end
