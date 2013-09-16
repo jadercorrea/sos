@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/scambra/devise_invitable.git
-  revision: 9e5a9a7e0e5ad489206386865efdfca5b87de62b
-  specs:
-    devise_invitable (1.1.8)
-      actionmailer (>= 3.2.6, < 5)
-      devise (>= 3.0.0.rc)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,7 +48,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.3.6)
-    database_cleaner (1.1.1)
+    database_cleaner (1.0.1)
     debugger (1.6.1)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -196,9 +188,8 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 1.1.4)
   coffee-rails
-  database_cleaner
+  database_cleaner (= 1.0.1)
   devise
-  devise_invitable!
   factory_girl
   jquery-rails
   launchy
