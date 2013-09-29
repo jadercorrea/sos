@@ -1,5 +1,6 @@
 ServiceOrders::Application.routes.draw do
 
+  get "event/index"
   devise_for :users, :controllers => {
     :sessions => "sessions",
     :registrations => "users",
@@ -12,6 +13,7 @@ ServiceOrders::Application.routes.draw do
   resources :service_orders
   resources :clients
   resources :print_view, only: [:show]
+  resources :events
 
   
   # The priority is based upon order of creation:
