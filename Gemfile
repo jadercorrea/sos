@@ -18,7 +18,6 @@ gem 'jquery-ui-rails'
 group :test, :development do
   gem 'rspec-rails'
 # gem 'thin'
-  gem 'sqlite3'
   gem 'pry-debugger'
   gem 'sqlite3'
 end
