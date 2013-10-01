@@ -1,3 +1,32 @@
 // Place all the styles related to the event controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+td {
+  &.title {
+    width: 70px;
+  }
+
+  &.description {
+    width: 120px;
+  }
+
+  &.date {
+    width: 175px;
+  }
+
+  &.client {
+    width: 50px;
+  }
+
+  &.user {
+    width: 50px;
+  }
+}
+
+.calendar {
+  width: 100%;
+}
+
+.day {
+  text-align: center;
+}

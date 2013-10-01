@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
-
 gem 'pg'
 gem 'devise'
-gem 'sqlite3'
 gem 'protected_attributes'
 
 group :assets do
@@ -20,6 +18,7 @@ gem 'jquery-ui-rails'
 group :test, :development do
   gem 'rspec-rails'
 # gem 'thin'
+  gem 'sqlite3'
   gem 'pry-debugger'
 end
 
