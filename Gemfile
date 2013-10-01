@@ -4,7 +4,6 @@ gem 'rails', '4.0.0'
 
 gem 'pg'
 gem 'devise'
-gem 'sqlite3'
 gem 'protected_attributes'
 
 group :assets do
@@ -20,6 +19,7 @@ group :test, :development do
   gem 'rspec-rails'
 # gem 'thin'
   gem 'pry-debugger'
+  gem 'sqlite3'
 end
 
 group :development do
