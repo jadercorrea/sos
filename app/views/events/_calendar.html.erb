@@ -1,31 +1,57 @@
 <% year = Date.new.year %>
 <% month = Date.new.month %>
 
-<% max_cols = 7 %>
+<% max_cols = 6 %>
 <% days_in_month = Date.new(year, month, -1).mday %>
 <% current_col = 0 %>
+<% day_in_week = Date.new(year,month,1).wday %>
 
-<table><br><br>
+<table class="calendar"><br><br>
   <tr>
-    <td>Domingo</td>
-    <td>Segunda</td>
-    <td>Terça</td>
-    <td>Quarta</td>
-    <td>Quinta</td>
-    <td>Sexta</td>
-    <td>Sábado</td>
+    <td class="day">Domingo</td>
+    <td class="day">Segunda</td>
+    <td class="day">Terça</td>
+    <td class="day">Quarta</td>
+    <td class="day">Quinta</td>
+    <td class="day">Sexta</td>
+    <td class="day">Sábado</td>
   </tr>
 
-<tr>
+  <tr>
 
-  <% b = 0 %>
-  <% while true %>
-    <% if i == 0 %>
+    <% i = 0 %>
+    <% tmp = 0 %>
+    <% day = 0 %>
+
+    <% while true %>
+      
+      <% if current_col > max_cols %>
+        </tr><tr>
+        <% current_col = 0 %>
+      <% end %>
+
+      <% if i == 0 && current_col == day_in_week %>
+        <% i = 1 %>
+      <% end %>
+
+      <% if i <= days_in_month %>
+        <td class="day"> <%= i %> </td>
+      <% else %>
+        <% colspan = 7 - current_col %>
+        <td colspan="<%= colspan %>"> . </td>
+      <% end %>
+
+      <% current_col += 1 %>
+      <% tmp += 1 %>
+
+      <% if tmp > 40 || i > days_in_month %>
+        <% break %>
+      <% end %>
+
+      <% i += 1 if i > 0 %>
         
     <% end %>
 
-  <% end %>
-
-</tr>
+  </tr>
 
 </table>

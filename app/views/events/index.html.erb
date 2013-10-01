@@ -1,6 +1,6 @@
 <h1>Listing events</h1>
 
-<table>
+<table width="100%">
   <thead>
     <tr>
       <th>Title</th>
@@ -16,12 +16,12 @@
 
   <tbody>
     <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.date %></td>
-        <td><%= event.client.name %></td>
-        <td><%= event.user.name %></td>
+      <tr class=<%=cycle('even', 'odd')%>>
+        <td class="title"><%= event.title %></td>
+        <td class="description"><%= event.description %></td>
+        <td class=""><%= event.date %></td>
+        <td class="client"><%= event.client.name %></td>
+        <td class="user"><%= event.user.name %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
