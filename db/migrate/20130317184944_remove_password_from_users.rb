@@ -1,6 +1,6 @@
 class RemovePasswordFromUsers < ActiveRecord::Migration
   def up
-    execute 'alter table users drop column password'
+    remove_column :users, :password
   end
 
   def down
