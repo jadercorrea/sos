@@ -14,4 +14,6 @@ $('document').ready(function() {
 	// Disable editing
 	$('#service_order_total_time').attr("readonly", true); 
 	
+	$( "#datepicker" ).datepicker();
+  
 })

@@ -1,0 +1,37 @@
+<h1>Listing events</h1>
+
+<table width="100%">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Client</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr class=<%=cycle('even', 'odd')%>>
+        <td class="title"><%= event.title %></td>
+        <td class="description"><%= event.description %></td>
+        <td class=""><%= event.date %></td>
+        <td class="client"><%= event.client.name %></td>
+        <td class="user"><%= event.user.name %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>
+
+<%= render 'calendar' %>

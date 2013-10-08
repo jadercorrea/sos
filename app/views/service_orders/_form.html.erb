@@ -1,3 +1,7 @@
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+ <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+ <link rel="stylesheet" href="/resources/demos/style.css" />
+  
 <%= form_for(@service_order) do |f| %>
   <% if @service_order.errors.any? %>
     <div id="error_explanation">
@@ -27,8 +31,8 @@
     <%= f.text_field :project %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+  <%= f.label :date %><br />
+  <%= f.text_field :date, id: "datepicker" %>
   </div>
   <div class="field">
     <%= f.label :reason %><br />

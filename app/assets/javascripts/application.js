@@ -16,4 +16,3 @@
 //= require scripts.js
 //= require timefield.js
 //= require total_os.js
-
