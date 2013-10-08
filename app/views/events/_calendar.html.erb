@@ -1,13 +1,13 @@
-<% year = Date.new.year %>
-<% month = Date.new.month %>
+<% year = Time.now.year %>
+<% month = Time.now.month %>
 
 <% max_cols = 6 %>
 <% days_in_month = Date.new(year, month, -1).mday %>
 <% current_col = 0 %>
-<% day_in_week = Date.new(year,month,1).wday %>
+<% day_in_week = Date.new(year, month, 1).wday %>
 
 <table class="calendar"><br><br>
-  <tr>
+  <tr class="week">
     <td class="day">Domingo</td>
     <td class="day">Segunda</td>
     <td class="day">Terça</td>

@@ -21,12 +21,27 @@ td {
   &.user {
     width: 50px;
   }
+  
+  &.day {
+    font: 14px;         
+    text-align: center;
+    height: 40px;
+    width: 50px;
+  }
+}
+
+tr {
+  &.week {
+    background: #e3edfd;
+    font: 14px;         
+    text-align: center;
+    height: 40px;
+    width: 50px;
+    font-weight: bold;
+  }
 }
 
 .calendar {
   width: 100%;
 }
 
-.day {
-  text-align: center;
-}
