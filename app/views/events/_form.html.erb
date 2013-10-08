@@ -1,3 +1,14 @@
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+
 <%= form_for(@event) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -20,8 +31,8 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date, type: :date %>
+    <%= f.label :date %><br />
+    <%= f.text_field :date, id: "datepicker" %>
   </div>
   <div class="field">
     <%= f.label :client_id %><br>
