@@ -25,8 +25,8 @@ feature "Users profile creation" do
     click_link "Logout"
     current_path.should == new_user_session_path
     fill_in "Email",    with: "juan@altavista.com"
-    fill_in "Password", with: "12345678" # new password
-    click_button "Sign in"
+    fill_in "Senha", with: "12345678" # new password
+    click_button "Login"
     page.should have_content("Roles")
     page.should have_content("Logout")
   end
