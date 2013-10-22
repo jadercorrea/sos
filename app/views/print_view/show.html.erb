@@ -9,131 +9,131 @@
 
 <body>
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td> <%= image_tag('company_logo.png')%> </td>
-    <td ><b>&nbsp;Service Order: <%= @service_order.id %> </b></td>
-  </tr>
-</table>
-
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <td></td>
-</table>
-
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <table width="700" border="0" cellspacing="0" cellpadding="0">
-    <td height="20" width="50" >&nbsp;Cliente:</td>
-    <td height="20" width="300">&nbsp;<%= @service_order.client.name %></td>
-  </table>
   <table width="700" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td height="20" width="50" >&nbsp;Modulo:</td>
-      <td height="20" width="300" >&nbsp;<%= @service_order.module %></td>
-      <td height="20" width="50" >&nbsp;Motivo:</td>
-      <td height="20" width="300" >&nbsp;<%= @service_order.reason %></td>
+      <td> <%= image_tag('company_logo.png')%> </td>
+      <td ><b>Service Order: <%= @service_order.id %> </b></td>
+    </tr>
+  </table>
+
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <td></td>
+  </table>
+
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <table width="700" border="0" cellspacing="0" cellpadding="0">
+      <td height="20" width="50" >&nbsp;Cliente:</td>
+      <td height="20" width="300">&nbsp;<%= @service_order.client.name %></td>
+    </table>
+    <table width="700" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="20" width="50" >&nbsp;Modulo:</td>
+        <td height="20" width="300" >&nbsp;<%= @service_order.module %></td>
+        <td height="20" width="50" >&nbsp;Motivo:</td>
+        <td height="20" width="300" >&nbsp;<%= @service_order.reason %></td>
+      </tr>
+      <tr>
+        <td height="20" width="50" >&nbsp;Projeto:</td>
+        <td height="20" width="300" >&nbsp;<%= @service_order.project %></td>
+        <td height="20" width="50" >&nbsp;Solicitante:</td>
+        <td height="20" width="300" >&nbsp;<%= @service_order.requestor %></td>
+      </tr>
+    </table>
+  </table>
+
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <td></td>
+  </table>
+
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td height="20" width="80"  >&nbsp;Data:&nbsp;</td>
+      <td height="20" width="140" >&nbsp;<%= @service_order.date %></td>
+      <td height="20" width="80"  >&nbsp;Inicio:&nbsp;</td>
+      <td height="20" width="140" >&nbsp;<%= @service_order.start_time %></td>
+      <td height="20" width="90"  >&nbsp;Outros (+):&nbsp;</td>
+      <td height="20" width="180" >&nbsp;<%= @service_order.other_billable_hours %></td>
     </tr>
     <tr>
-      <td height="20" width="50" >&nbsp;Projeto:</td>
-      <td height="20" width="300" >&nbsp;<%= @service_order.project %></td>
-      <td height="20" width="50" >&nbsp;Solicitante:</td>
-      <td height="20" width="300" >&nbsp;<%= @service_order.requestor %></td>
-  </tr>
+      <td height="20" width="80"  >&nbsp;Analista:&nbsp;</td>
+      <td height="20" width="140" >&nbsp;<%= @service_order.user.name %></td>
+      <td height="20" width="80"  >&nbsp;Fim:&nbsp;</td>
+      <td height="20" width="140" >&nbsp;<%= @service_order.end_time %></td>
+      <td height="20" width="90"  >&nbsp;Outros (-):&nbsp;</td>
+      <td height="20" width="180" >&nbsp;<%= @service_order.non_billable_hours %></td>
+    </tr>
+    <table width="700" border="0" cellspacing="0" cellpadding="0">
+      <td height="20" width="50" >&nbsp;Total:</td>
+      <td height="20" width="300">&nbsp; <%= @service_order.total_time %> </td>
+    </table>
   </table>
-</table>
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <td></td>
-</table>
-
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td height="20" width="80"  >&nbsp;Data:&nbsp;</td>
-    <td height="20" width="140" >&nbsp;<%= @service_order.date %></td>
-    <td height="20" width="80"  >&nbsp;Inicio:&nbsp;</td>
-    <td height="20" width="140" >&nbsp;<%= @service_order.start_time %></td>
-    <td height="20" width="90"  >&nbsp;Outros (+):&nbsp;</td>
-    <td height="20" width="180" >&nbsp;<%= @service_order.other_billable_hours %></td>
-  </tr>
-  <tr>
-    <td height="20" width="80"  >&nbsp;Analista:&nbsp;</td>
-    <td height="20" width="140" >&nbsp;<%= @service_order.user.name %></td>
-    <td height="20" width="80"  >&nbsp;Fim:&nbsp;</td>
-    <td height="20" width="140" >&nbsp;<%= @service_order.end_time %></td>
-    <td height="20" width="90"  >&nbsp;Outros (-):&nbsp;</td>
-    <td height="20" width="180" >&nbsp;<%= @service_order.non_billable_hours %></td>
-  </tr>
   <table width="700" border="0" cellspacing="0" cellpadding="0">
-    <td height="20" width="50" >&nbsp;Total:</td>
-    <td height="20" width="300">&nbsp; <%= @service_order.total_time %> </td>
+    <tr><td></td></tr>
   </table>
-</table>
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <tr><td></td></tr>
-</table>
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td height="20" width="300">&nbsp;Atividades:</td>
+    </tr>
+    <tr>
+      <td height="20" width="300">&nbsp;<%= raw@service_order.description.gsub(/\n/, "<br>") %>
+        <br>
+        <br>
+      </td>
+    </tr>  
+  </table>
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td height="20" width="300">&nbsp;Atividades:</td>
-  </tr>
-  <tr>
-    <td height="20" width="300">&nbsp;<%= raw@service_order.description.gsub(/\n/, "<br>") %>
-      <br>
-      <br>
-    </td>
-  </tr>  
-</table>
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <tr><td></td></tr>
+  </table>
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <tr><td></td></tr>
-</table>
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td height="20" width="300">&nbsp;Observa&ccedil;&otilde;es:</td>
+    </tr>
+    <tr>
+      <td height="20" width="300">
+        &nbsp;<%= raw@service_order.comment.gsub(/\n/, "<br>") %>
+        <br>
+        <br>
+      </td>
+    </tr>  
+  </table>
+  <br>  
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td height="20" width="300">&nbsp;Observa&ccedil;&otilde;es:</td>
-  </tr>
-  <tr>
-    <td height="20" width="300">
-      &nbsp;<%= raw@service_order.comment.gsub(/\n/, "<br>") %>
-      <br>
-      <br>
-    </td>
-  </tr>  
-</table>
-<br>  
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        N&atilde;o h&aacute; restri&ccedil;&otilde;es e/ou observa&ccedil;&otilde;es sobre dados contidos nesta Ordem de Servi&ccedil;o. Alertamos que caso o 
+        cliente n&atilde;o 
+        se pronuncie, concordando ou n&atilde;o com o exposto, no prazo de 48 horas da data da emiss&atilde;o desta, seja via telefone, fax ou e-mail, perder&aacute; o direito de reclama&ccedil;&atilde;o.
+        <br>
+      </td>
+    </tr>
+  </table>
+  <br>
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td>
-      N&atilde;o h&aacute; restri&ccedil;&otilde;es e/ou observa&ccedil;&otilde;es sobre dados contidos nesta Ordem de Servi&ccedil;o. Alertamos que caso o 
-      cliente n&atilde;o 
-      se pronuncie, concordando ou n&atilde;o com o exposto, no prazo de 48 horas da data da emiss&atilde;o desta, seja via telefone, fax ou e-mail, perder&aacute; o direito de reclama&ccedil;&atilde;o.
-    </td>
-  </tr>
-</table>
-<br>
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
+    <td></td>
+  </table>
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
-  <td></td>
-</table>
+  <br>
+  <br>
 
-<br>
-<br>
+  <table width="700" border="0" cellspacing="0" cellpadding="0">
 
-<table width="700" border="0" cellspacing="0" cellpadding="0">
+    <td class="td"><%= @service_order.requestor %> - <%= @service_order.client.name %></td>
 
-  <td class="td"><%= @service_order.requestor %> - <%= @service_order.client.name %></td>
-  
-</table>
+  </table>
 
-<br>
-<!--
-<%= link_to image_tag('icon_edit.png', :size => '30x30'), edit_service_order_path(@service_order) %> 
-<%= link_to image_tag('icon_back.png', :size => '30x30'), service_orders_path %>
-<%= link_to image_tag('icon_new.png', :size => '30x30'), new_service_order_path %> -->
-<br>
-<br>
-<br>
+  <br>
+  <%= link_to image_tag('icon_edit.png', :size => '30x30'), edit_service_order_path(@service_order) %> 
+  <%= link_to image_tag('icon_back.png', :size => '30x30'), service_orders_path %>
+  <%= link_to image_tag('icon_new.png', :size => '30x30'), new_service_order_path %>
+  <br>
+  <br>
+  <br>
 </body>
 
 </html>

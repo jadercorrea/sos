@@ -11,6 +11,9 @@ $('document').ready(function() {
 	// Calculate total time
 	$('.js_time').total_os();
 
+  // Filter
+  $('.filter').table_filter();
+
 	// Disable editing
 	$('#service_order_total_time').attr("readonly", true);
 

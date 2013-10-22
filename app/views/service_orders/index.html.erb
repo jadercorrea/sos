@@ -1,4 +1,4 @@
-<table>
+<table id='table'>
   <tr>
     <th>Usuário</th>
     <th>Cliente</th>
@@ -21,7 +21,7 @@
     <td class="client"><%= service_order.client.name %></td> 
     <td class="module"><%= service_order.module %></td>
     <td class="project"><%= service_order.project %></td>
-    <td class="date"><%= service_order.date %></td>
+    <td class="date"><%= service_order.date.strftime('%d/%m/%y')%></td>
     <td class="requestor"><%= service_order.requestor %></td>
     <td class="total_os"><%= service_order.total_time %></td>
     <td class="image"><%= link_to image_tag('icon_show.png', :size => '20x20', :title => 'Mostrar'), service_order_path(service_order) %></td>

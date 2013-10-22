@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20131023005607) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "events", force: true do |t|
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20131023005607) do
 
   create_table "roles", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "service_orders", force: true do |t|
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 20131023005607) do
     t.string   "other_billable_hours"
     t.text     "description"
     t.text     "comment"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "total_time"
   end
@@ -62,17 +62,22 @@ ActiveRecord::Schema.define(version: 20131023005607) do
   create_table "ticket_messages", force: true do |t|
     t.string   "text"
     t.integer  "ticket_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "ticket_messages", ["ticket_id"], name: "index_ticket_messages_on_ticket_id"
 
   create_table "tickets", force: true do |t|
     t.integer  "client_id"
+<<<<<<< HEAD
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "status"
+=======
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> [css, js, html] Table filter
   end
 
   add_index "tickets", ["client_id"], name: "index_tickets_on_client_id"
@@ -80,8 +85,8 @@ ActiveRecord::Schema.define(version: 20131023005607) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "role_id"
     t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: ""
