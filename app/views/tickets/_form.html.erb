@@ -1,10 +1,15 @@
 <%= form_for(@ticket) do |f| %>
 
   <div class="field">
-    <%= f.label :client_id, "Client" %><br>
+    <%= f.label :client_id, "Cliente" %><br>
     <%= f.select :client_id, options_for_select(@clients) %>
   </div>
- 
+
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select :status, options_for_select([["Pendente", "pending"], ["Em andamento", "processing"], ["Resolvido", "solved"]]) %>
+  </div>
+
   <br>
   <div class = "messages">
     <%= f.label :text, "Message" %> <br>

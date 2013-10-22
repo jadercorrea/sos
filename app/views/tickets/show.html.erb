@@ -5,6 +5,11 @@
   <%= @ticket.client.name %>
 </p>
 
+<p>
+  <b>Status:</b>
+  <%= t("status.#{@ticket.status}") %>
+</p>
+
 <% @ticket.messages.each do |message| %>
   <p>
     <%= message.text %>
