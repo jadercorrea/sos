@@ -11,15 +11,25 @@
   </div>
 
   <br>
-  <div class = "messages">
+
+  <div class="messages">
+    <% @ticket.messages.each do |message| %>
+      <div class="message">
+        <%= message.text %>
+      </div>
+    <% end %>
+
+    <br />
+    <br />
     <%= f.label :text, "Message" %> <br>
     <%= f.fields_for :messages do |m| %>
-      <%= m.text_area :text %>
+      <% next if m.object.persisted? %>
+      <%= m.text_area :text, id: "message_field" %>
     <% end %>
   </div>
 
   <br>
   <div class="actions">
-    <%= f.submit "Create ticket" %>
+    <%= f.submit "Salvar" %>
   </div>
 <% end %>
