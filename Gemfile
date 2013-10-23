@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
-
 gem 'pg'
 gem 'devise'
 gem 'protected_attributes'
@@ -14,6 +13,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 group :test, :development do
   gem 'rspec-rails'

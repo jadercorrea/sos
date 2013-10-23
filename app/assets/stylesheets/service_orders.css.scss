@@ -1,20 +1,20 @@
 td {
   &.name {
-    width: 70px;
+    width: 80px;
   }
   &.client {
-    width: 70px;
+    width: 80px;
   }
   &.module {
-    width: 85px;
+    width: 105px;
   }
 
   &.project {
-    width: 135px;
+    width: 160px;
   }
 
   &.date {
-    width: 70px;
+    width: 80px;
   }
   
   &.reason {
@@ -22,7 +22,11 @@ td {
   }
 
   &.requestor {
-    width: 70px;
+    width: 80px;
+  }
+
+  &.total_os {
+    width: 40px;
   }
 
   &.image {

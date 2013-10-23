@@ -6,7 +6,7 @@ feature "Users profile creation" do
   end
 
   scenario "As an user, I want to create another user" do
-    click_link "Users"
+    click_link "Usuários"
     page.should have_content("Luke")
 
     click_link "new_user"
