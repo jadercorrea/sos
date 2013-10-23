@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_filter :load_clients, only: [:new]
+  before_filter :load_clients, only: [:new, :edit, :create, :update]
   # GET /tickets
   # GET /tickets.json
   def index
@@ -27,6 +27,7 @@ class TicketsController < ApplicationController
   # GET /tickets/1/edit
   def edit
     @ticket = Ticket.find(params[:id])
+    @ticket.messages.build
   end
 
   # POST /tickets
@@ -36,7 +37,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
+        format.html { redirect_to tickets_path, notice: 'Ticket was successfully created.' }
         format.json { render json: @ticket, status: :created, location: @ticket }
       else
         format.html { render action: "new" }
@@ -52,7 +53,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
+        format.html { redirect_to edit_ticket_path(@ticket), notice: 'Ticket was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
