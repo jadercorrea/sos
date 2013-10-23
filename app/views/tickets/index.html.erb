@@ -1,13 +1,13 @@
 <table>
   <tr>
-    <th>Client</th>
+    <th>Cliente</th>
     <th>Status</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @tickets.each do |ticket| %>
-  <tr>
+  <tr class=<%=cycle('even', 'odd')%>>
     <td><%= ticket.client.name %></td>
     <td><%= t("status.#{ticket.status}") %></td>
     <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_ticket_path(ticket), id: "edit_ticket" %></td>

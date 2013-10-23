@@ -10,7 +10,7 @@ feature "Users profile" do
   end
 
   scenario "As an user, I want to edit my profile" do
-    click_link "Users"
+    click_link "Usuários"
     page.should have_content("Luke")
     page.should have_content("Luan")
 
