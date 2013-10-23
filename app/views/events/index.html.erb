@@ -17,7 +17,7 @@
       <tr class=<%=cycle('even', 'odd')%>>
         <td class="title"><%= event.title %></td>
         <td class="description"><%= event.description %></td>
-        <td class=""><%= event.date %></td>
+        <td class=""><%= event.start_datetime %></td>
         <td class="client"><%= event.client.name %></td>
         <td class="user"><%= event.user.name %></td>
         <td><%= link_to 'Show', event %></td>

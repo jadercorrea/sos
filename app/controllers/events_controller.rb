@@ -28,14 +28,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params.merge(user_id: current_user.id))
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @event }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      redirect_to @event, notice: 'Event was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
@@ -71,6 +67,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :date, :client_id)
+      params.require(:event).permit(:title, :description, :start_datetime, :client_id)
     end
 end
