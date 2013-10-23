@@ -1,23 +1,25 @@
-<div class="login">
+<div class="test">
+  <div class="login">
 
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div>
-      <%= f.label :email %><br />
-      <%= f.email_field :email, :autofocus => true %>
-    </div>
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, :autofocus => true %>
+      </div>
 
-    <div>
-      <%= f.label :password, "Senha" %><br />
-      <%= f.password_field :password %>
-    </div>
+      <div>
+        <%= f.label :password, "Senha" %><br />
+        <%= f.password_field :password %>
+      </div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div><%= f.check_box :remember_me %> 
-           <%= f.label :Lembrar_me %></div>
-    <% end -%>
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> 
+             <%= f.label :Lembrar_me %></div>
+      <% end -%>
 
-    <div align="right">
-      <%= f.submit "Login" %>
-    </div>
-  <% end %>
+      <div align="right">
+        <%= f.submit "Login" %>
+      </div>
+    <% end %>
+  </div>
 </div>

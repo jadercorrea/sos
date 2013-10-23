@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20131025000552) do
     t.datetime "confirmed_at"
     t.string   "confirmation_token"
     t.datetime "confirmation_sent_at"
+    t.datetime "invitation_created_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

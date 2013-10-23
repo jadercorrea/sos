@@ -1,3 +1,10 @@
+/* Logo do sistema*/
+.test {
+  background: url(logo.jpg) center left no-repeat;
+  background-size: 250px 123px;
+  padding-left: 268px;
+}
+
 .login {
   .body {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
@@ -8,7 +15,7 @@
     font-size: 14px;
     position: fixed;    
     top: 50%;
-    left: 50%;
+    left: 40%;
     margin-top: -190px;
     margin-left: -170px;
     border: 1px solid #ccc;
