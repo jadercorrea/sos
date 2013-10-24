@@ -8,24 +8,26 @@ feature "Events" do
   end
 
   scenario "As admin, I want to create an event" do
-    click_link "Eventos"
-    click_link "new_event"
+    Timecop.travel(Time.utc(2013, 10, 24, 10, 0, 0)) do
+      click_link "Eventos"
+      click_link "new_event"
 
-    fill_in "event_title", with: "Meu evento"
-    fill_in "event_description", with: "Descrição do evento"
+      fill_in "event_title", with: "Meu evento"
+      fill_in "event_description", with: "Descrição do evento"
 
-    select "24", from: "event_start_datetime_3i"
-    select "Outubro", from: "event_start_datetime_2i"
-    select "2013", from: "event_start_datetime_1i"
+      select "24", from: "event_start_datetime_3i"
+      select "Outubro", from: "event_start_datetime_2i"
+      select "2013", from: "event_start_datetime_1i"
 
-    select "Luan", from: "event_client_id"
+      select "Luan", from: "event_client_id"
 
-    click_button "Salvar"
+      click_button "Salvar"
 
-    current_path.should == events_path
+      current_path.should == events_path
 
-    within ".day_24" do
-      page.should have_content "Meu evento"
+      within ".day_24" do
+        page.should have_content "Meu evento"
+      end
     end
   end
 end
