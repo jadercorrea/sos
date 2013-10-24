@@ -1,15 +1,17 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the EventHelper. For example:
-#
-# describe EventHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 describe EventHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe ".todays_events" do
+    before do
+      @events = [
+        FactoryGirl.create(:event, start_datetime: 1.day.ago),
+        FactoryGirl.create(:event, start_datetime: Time.now),
+        FactoryGirl.create(:event, start_datetime: 1.day.from_now)
+      ]
+    end
+
+    it "returns only events for today" do
+      helper.todays_events(@events, Time.now.day).should == [@events[1]]
+    end
+  end
 end

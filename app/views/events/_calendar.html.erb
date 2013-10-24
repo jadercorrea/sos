@@ -24,7 +24,7 @@
     <% day = 0 %>
 
     <% while true %>
-      
+
       <% if current_col > max_cols %>
         </tr><tr>
         <% current_col = 0 %>
@@ -35,10 +35,24 @@
       <% end %>
 
       <% if i <= days_in_month %>
-        <td class="day"> <%= i %> </td>
+        <% # HERE IS THE ACTUAL DAY %>
+        <td class="day day_<%= i %>" valign="top">
+
+          <% if i > 0 %>
+            <%= i %>
+            <br />
+
+            <% todays_events(@events, i).each do |event| %>
+              <div class="event_title">
+                <%= link_to event.title, event %>
+              </div>
+            <% end %>
+          <% end %>
+
+        </td>
       <% else %>
         <% colspan = 7 - current_col %>
-        <td colspan="<%= colspan %>"> . </td>
+        <td colspan="<%= colspan %>"></td>
       <% end %>
 
       <% current_col += 1 %>
@@ -49,9 +63,8 @@
       <% end %>
 
       <% i += 1 if i > 0 %>
-        
+
     <% end %>
 
   </tr>
-
 </table>
