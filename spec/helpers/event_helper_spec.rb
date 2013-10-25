@@ -11,7 +11,7 @@ describe EventHelper do
     end
 
     it "returns only events for today" do
-      helper.todays_events(@events, Time.now.day).should == [@events[1]]
+      helper.todays_events(@events, Time.new.utc.day).should == [@events[1]]
     end
   end
 end

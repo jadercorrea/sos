@@ -1,8 +1,13 @@
 <%= form_for(@ticket) do |f| %>
 
   <div class="field">
+    <%= f.label :title, "Título" %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
     <%= f.label :client_id, "Cliente" %><br>
-    <%= f.select :client_id, options_for_select(@clients) %>
+    <%= f.select :client_id, options_for_select(@clients, @ticket.client_id) %>
   </div>
 
   <div class="field">

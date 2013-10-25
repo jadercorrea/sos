@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :ticket do
+    sequence(:title) { |n| "Ticket title #{n}" }
     status "pending"
     association :client
 
