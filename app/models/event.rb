@@ -4,4 +4,11 @@ class Event < ActiveRecord::Base
 
   belongs_to :client
   belongs_to :user
+
+  validates :start_datetime, presence: true
+
+  scope :this_month, ->{
+    where("start_datetime > ?", Time.now.beginning_of_month)
+      .where("start_datetime < ?", Time.now.end_of_month)
+  }
 end

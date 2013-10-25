@@ -1,14 +1,10 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-  # GET /events
-  # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.this_month.to_a
   end
 
-  # GET /events/1
-  # GET /events/1.json
   def show
   end
 
@@ -29,7 +25,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params.merge(user_id: current_user.id))
 
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to events_url, notice: 'Event was successfully created.'
     else
       render action: 'new'
     end

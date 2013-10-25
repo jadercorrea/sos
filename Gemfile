@@ -32,4 +32,5 @@ group :test do
   gem 'poltergeist', '1.0.2'
   gem 'launchy'
   gem 'database_cleaner', '1.0.1'
+  gem 'timecop'
 end
