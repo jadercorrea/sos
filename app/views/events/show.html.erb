@@ -5,6 +5,13 @@
   <%= @event.title %>
 </p>
 
+<% if @event.ticket.present? %>
+  <p>
+    <strong>Relacionado ao ticket</strong>
+    <%= link_to @event.ticket.title, edit_ticket_path(@event.ticket) %>
+  </p>
+<% end %>
+
 <p>
   <strong>Description:</strong>
   <%= @event.description %>
