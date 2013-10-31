@@ -35,7 +35,7 @@
 .menu {
   clear:both; 
   float:left; 
-  width:160px; 
+  width:165px; 
   margin:0; 
   padding: 24px 5px 0 0;
 }
@@ -85,11 +85,12 @@
 
 .table {
   float:left; 
-  width: 720px; 
+  width: 710px; 
   margin: 0; 
   padding: 15px 15px 0 0;
   font-size: 1.2em; 
   border-collapse: collapse;
+  border: none;
 }
 
 .even {
@@ -120,4 +121,9 @@ a:hover {
 
 .hide {
   display:none;
+}
+
+a img{
+  border: none;
+  
 }
