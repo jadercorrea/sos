@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_filter :load_clients, only: [:new, :edit, :create, :update]
+  before_filter :load_users, only: [:new, :edit, :create, :update]
   # GET /tickets
   # GET /tickets.json
   def index
@@ -78,5 +79,9 @@ class TicketsController < ApplicationController
 
   def load_clients
     @clients = Client.all.map { |m| [m.name, m.id] }
+  end
+
+   def load_users
+    @users = User.colaborators.map { |m| [m.name, m.id] }
   end
 end

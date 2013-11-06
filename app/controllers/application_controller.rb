@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_access
-    if @@allowed_roles.present?
+    if @@allowed_roles.present? && current_user.present?
       raise "Acesso não permitido" unless @@allowed_roles.include?(current_user.role.to_sym)
     end
   end

@@ -2,6 +2,7 @@
   <tr>
     <th>Título</th>
     <th>Cliente</th>
+    <th>Colaborador</th>
     <th>Status</th>
     <th></th>
     <th></th>
@@ -11,6 +12,11 @@
   <tr class=<%=cycle('even', 'odd')%>>
     <td><%= ticket.title %></td>
     <td><%= ticket.client.name %></td>
+    <td>
+    <% if ticket.user.present? %>
+      <%= ticket.user.name %>
+    <% end %>
+    </td>
     <td><%= t("status.#{ticket.status}") %></td>
     <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_ticket_path(ticket), id: "edit_ticket" %></td>
     <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
