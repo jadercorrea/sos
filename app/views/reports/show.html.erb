@@ -1,0 +1,8 @@
+
+<h1>Horas trabalhadas</h1>
+
+<% @users.each do |user| %>
+  <div class="user_<%= user.id %>">
+    <%= user.name %>: <%= user.total_time %>
+  </div>
+<% end %>
