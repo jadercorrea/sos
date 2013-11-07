@@ -19,11 +19,14 @@
 			<h2 class='hide'>Menu:</h2>
 			<ul>
 				<li><%= link_to 'Ordens de Serviço', service_orders_path, class: current("service_orders") %> </li>
-				<li><%= link_to 'Tickets', tickets_path,class: current("tickets")  %> </li>
-				<li><%= link_to 'Clientes', clients_path,class: current("clients")  %> </li>
-				<li><%= link_to 'Usuários', users_path,class: current("users")  %> </li>
-				<li><%= link_to 'Roles', roles_path,class: current("roles")  %> </li>
-				<li><%= link_to 'Eventos', events_path,class: current("events")  %> </li>
+				<li><%= link_to 'Tickets', tickets_path, class: current("tickets")  %> </li>
+				<li><%= link_to 'Clientes', clients_path, class: current("clients")  %> </li>
+				<li><%= link_to 'Usuários', users_path, class: current("users")  %> </li>
+				<li><%= link_to 'Roles', roles_path, class: current("roles")  %> </li>
+				<li><%= link_to 'Eventos', events_path, class: current("events")  %> </li>
+        <% if admin? %>
+          <li><%= link_to 'Relatórios', reports_path, class: current("reports")  %> </li>
+        <% end %>
 				<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %> </li>
 			</ul>
 		</div>
@@ -31,10 +34,10 @@
 			<%= yield %>
 		</div>
 	</div>
-</div>	
+</div>
 </body>
 </html>
 
-<!--<%= params.inspect %> 
+<!--<%= params.inspect %>
 <p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>--> 
+<p class="alert"><%= alert %></p>-->

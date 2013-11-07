@@ -1,33 +1,20 @@
 # encoding: utf-8
 require "spec_helper"
 
-feature "Events" do
+feature "Reports" do
   background do
     login_into_admin
-    @client = FactoryGirl.create(:client, name: "Luan")
+    @user = FactoryGirl.create(:user)
+    FactoryGirl.create(:service_order, user: @user, total_time: "2:20")
+    FactoryGirl.create(:service_order, user: @user, total_time: "1:20")
   end
 
-  scenario "As admin, I want to create an event" do
-    Timecop.travel(Time.utc(2013, 10, 24, 10, 0, 0)) do
-      click_link "Eventos"
-      click_link "new_event"
+  scenario "As admin, I see the total worked hours" do
+    click_link "Relatórios"
+    current_path.should == reports_path
 
-      fill_in "event_title", with: "Meu evento"
-      fill_in "event_description", with: "Descrição do evento"
-
-      select "24", from: "event_start_datetime_3i"
-      select "Outubro", from: "event_start_datetime_2i"
-      select "2013", from: "event_start_datetime_1i"
-
-      select "Luan", from: "event_client_id"
-
-      click_button "Salvar"
-
-      current_path.should == events_path
-
-      within ".day_24" do
-        page.should have_content "Meu evento"
-      end
+    within ".user_#{@user.id}" do
+      page.should have_content "#{@user.name}: 3:40"
     end
   end
 end

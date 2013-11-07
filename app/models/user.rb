@@ -7,9 +7,20 @@ class User < ActiveRecord::Base
 
 	belongs_to :role
 
+  has_many :service_orders
+
   attr_accessible :password, :password_confirmation, :remember_me
   attr_accessible :name, :email, :role_id
 
   validates :name, :email, :role_id, presence: true
   validates :password, presence: true, on: :creation
+
+  def total_time
+    worked_times = self.service_orders.map(&:total_time)
+    StringTime.new(worked_times).total_time
+  end
+
+  def admin?
+    role.admin?
+  end
 end
