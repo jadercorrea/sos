@@ -10,13 +10,13 @@
 
 .header {
   clear:both; 
-  height:150px;
+  height:140px;
 }
 
 .header h1 {
   font-size: 3.0em; 
   letter-spacing:-2px; 
-  color:#d88d44; 
+  color:#d88d44;
   padding:10px 0 10px 45px;
 }
 
@@ -112,7 +112,8 @@ td {
 } 
 
 a:hover {
-  background: transparent; 
+  background: transparent;
+  color:#cdcdc1;  
 }
 
 .td {

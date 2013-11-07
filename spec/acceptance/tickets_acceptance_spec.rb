@@ -6,6 +6,8 @@ feature "Tickets" do
     login_into_admin
     @client  = FactoryGirl.create(:client, name: "Buiu")
     @client2 = FactoryGirl.create(:client, name: "Luan")
+    role = FactoryGirl.create(:role, name: "Colaborador")
+    @user = FactoryGirl.create(:user, role: role)
     @ticket  = FactoryGirl.create(:ticket, client: @client2)
   end
 
@@ -23,6 +25,7 @@ feature "Tickets" do
     select "Luan", from: "Cliente"
     page.should have_select "Status", options: ["Pendente", "Em andamento", "Resolvido"]
     select "Pendente", from: "Status"
+    page.should have_selector("#ticket_user_id")
     fill_in "message_field", with: "Aqui está um ticket"
     click_button "Salvar"
     current_path.should == tickets_path
@@ -48,6 +51,8 @@ feature "Tickets" do
       page.should have_content "Pendente"
 
       select "Em andamento", from: "Status"
+      # save_and_open_page
+      select @user.name, from: "Colaborador"
       click_button "Salvar"
       page.should have_content "Luan"
       page.should have_content "Em andamento"

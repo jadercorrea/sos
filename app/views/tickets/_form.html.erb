@@ -17,6 +17,8 @@
     </div>
   <% end %>  
 
+  <%= current_user.role.inspect %>
+
   <div class="field">
     <%= f.label :status %><br>
     <%= f.select :status, options_for_select([["Pendente", "pending"], ["Em andamento", "processing"], ["Resolvido", "solved"]]) %>
