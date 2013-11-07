@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_access
+    Rails.logger.info @@allowed_roles.inspect
     if @@allowed_roles.present? && current_user.present?
       raise "Acesso não permitido" unless @@allowed_roles.include?(current_user.role.to_sym)
     end
