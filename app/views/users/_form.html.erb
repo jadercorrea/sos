@@ -30,10 +30,12 @@
     <%= f.password_field :password_confirmation, html: { autocomplete: "off" } %>
   </div>
 
-  <div class="field">
-    <%= f.label :role_id, "Função" %><br />
-    <%= f.select :role_id, options_for_select(@roles) %>
-  </div>
+  <% if admin? %>
+    <div class="field">
+      <%= f.label :role_id, "Função" %><br />
+      <%= f.select :role_id, options_for_select(@roles) %>
+    </div>
+  <% end %>
 
   <div class="field client_id">
     <%= f.label :client_id, "Empresa" %><br />

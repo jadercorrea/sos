@@ -31,4 +31,12 @@ class User < ActiveRecord::Base
     client.name if client.present? 
   end
     
+  def colaborator?
+    role.colaborator?
+  end
+
+  def client?
+    role.client?
+  end
+
 end

@@ -9,6 +9,14 @@ class Role < ActiveRecord::Base
     self.to_sym == :admin
   end
 
+  def colaborator?
+    self.to_sym == :colaborador
+  end
+
+  def client?
+    self.to_sym == :cliente
+  end
+
   def to_sym
     self.name.camelize.gsub(" ", "").underscore.to_sym
   end
