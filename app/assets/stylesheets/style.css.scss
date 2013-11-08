@@ -10,13 +10,13 @@
 
 .header {
   clear:both; 
-  height:150px;
+  height:140px;
 }
 
 .header h1 {
-  font-size:3.8em; 
-  letter-spacing:-4px; 
-  color:#d88d44; 
+  font-size: 3.0em; 
+  letter-spacing:-2px; 
+  color:#d88d44;
   padding:10px 0 10px 45px;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .slogan {
-  color:#20526a; 
+  color:#20526a;
   margin:15px 0 0 45px; 
   font-size:1.6em; 
   letter-spacing:-1px;
@@ -35,9 +35,9 @@
 .menu {
   clear:both; 
   float:left; 
-  width:160px; 
+  width:165px; 
   margin:0; 
-  padding: 24px 10px 0 0;
+  padding: 24px 5px 0 0;
 }
 
 .menu ul {
@@ -50,6 +50,8 @@
 
 .menu li {
   margin-bottom:4px;
+  text-overflow:ellipsis;
+  overflow:hidden;
 }
 
 .menu li a {
@@ -88,6 +90,7 @@
   padding: 15px 15px 0 0;
   font-size: 1.2em; 
   border-collapse: collapse;
+  border: none;
 }
 
 .even {
@@ -109,7 +112,8 @@ td {
 } 
 
 a:hover {
-  background: transparent; 
+  background: transparent;
+  color:#cdcdc1;  
 }
 
 .td {
@@ -118,4 +122,9 @@ a:hover {
 
 .hide {
   display:none;
+}
+
+a img{
+  border: none;
+  
 }

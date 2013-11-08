@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   validates :name, :email, :role_id, presence: true
   validates :password, presence: true, on: :creation
 
+  scope :colaborators, -> { joins(:role).where("roles.name = ?", "Colaborador") }
+
   def total_time
     worked_times = self.service_orders.map(&:total_time)
     StringTime.new(worked_times).total_time

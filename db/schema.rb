@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025000552) do
+ActiveRecord::Schema.define(version: 20131031211620) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -76,10 +76,12 @@ ActiveRecord::Schema.define(version: 20131025000552) do
     t.datetime "updated_at", null: false
     t.string   "status"
     t.string   "title"
+    t.integer  "user_id"
   end
 
   add_index "tickets", ["client_id"], name: "index_tickets_on_client_id"
   add_index "tickets", ["status"], name: "index_tickets_on_status"
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 20131025000552) do
     t.datetime "confirmed_at"
     t.string   "confirmation_token"
     t.datetime "confirmation_sent_at"
+    t.datetime "invitation_created_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

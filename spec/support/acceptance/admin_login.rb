@@ -1,6 +1,7 @@
 module AcceptanceSteps
   def login_into_admin
     @user ||= FactoryGirl.create(:user)
+    
     visit new_user_session_path
 
     fill_in "Email", with: "thegoodson@rebels.org"
