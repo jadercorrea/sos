@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @roles = Role.all.map { |m| [m.name, m.id] }
+    @clients = Client.all.map { |m| [m.name, m.id] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @roles = Role.all.map { |m| [m.name, m.id] }
+    @clients = Client.all.map { |m| [m.name, m.id] }
   end
 
   # POST /users
