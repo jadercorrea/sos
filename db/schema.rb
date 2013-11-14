@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031211620) do
+ActiveRecord::Schema.define(version: 20131112035208) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -108,8 +108,10 @@ ActiveRecord::Schema.define(version: 20131031211620) do
     t.string   "confirmation_token"
     t.datetime "confirmation_sent_at"
     t.datetime "invitation_created_at"
+    t.integer  "client_id"
   end
 
+  add_index "users", ["client_id"], name: "index_users_on_client_id"
   add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"

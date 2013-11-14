@@ -35,7 +35,12 @@
     <%= f.select :role_id, options_for_select(@roles) %>
   </div>
 
+  <div class="field client_id">
+    <%= f.label :client_id, "Empresa" %><br />
+    <%= f.select :client_id, options_for_select(@clients) %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <br><%= f.submit %>
   </div>
 <% end %>

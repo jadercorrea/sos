@@ -6,11 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
 
 	belongs_to :role
+  belongs_to :client
 
   has_many :service_orders
 
   attr_accessible :password, :password_confirmation, :remember_me
-  attr_accessible :name, :email, :role_id
+  attr_accessible :name, :email, :role_id, :client_id
 
   validates :name, :email, :role_id, presence: true
   validates :password, presence: true, on: :creation
@@ -25,4 +26,9 @@ class User < ActiveRecord::Base
   def admin?
     role.admin?
   end
+
+  def client_name
+    client.name if client.present? 
+  end
+    
 end

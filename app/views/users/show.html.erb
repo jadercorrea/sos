@@ -16,6 +16,12 @@
   <%= @user.role.name %>
 </p>
 
+<% if @user.role.name == "Cliente" %>
+   <p>
+    <b>Empresa:</b>
+    <%= @user.client_name %>
+  </p>
+<% end %>
 
 <%= link_to image_tag('icon_edit.png', :size => '30x30'), edit_user_path(@user) %> 
 <%= link_to image_tag('icon_back.png', :size => '30x30'), users_path %>
