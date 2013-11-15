@@ -14,8 +14,8 @@
 		<p class='slogan'>Sistema de Gerenciamento de Ordens de Serviço </p>
 	</div>
 	<div class='body'>
+    <div class="user_current">Olá <%= current_user.role.name %></div>
 		<div class='menu'>
-
 			<h2 class='hide'>Menu:</h2>
 			<ul>
           <li><%= link_to 'Ordens de Serviço', service_orders_path, class: current("service_orders") %> </li>
@@ -31,7 +31,7 @@
 			 	<% end %>
         
         <% if colaborator? || client? %>
-          <li><%= link_to 'Meu Perfil', edit_user_path(current_user), class: current("users")  %> </li>
+          <li><%= link_to 'Meu Perfil', user_path(current_user), class: current("users")  %> </li>
         <% end %>
 
         <% if admin? %>

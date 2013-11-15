@@ -4,7 +4,11 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    if current_user.client?
+      @tickets = current_user.client.tickets.all
+    else
+      @tickets = Ticket.all
+    end 
   end
 
   # GET /tickets/1

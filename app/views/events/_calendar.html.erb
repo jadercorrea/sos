@@ -44,7 +44,7 @@
 
             <% todays_events(@events, i).each do |event| %>
               <div class="event_title">
-                <%= link_to event.title, event %>
+                <%= link_to event.user.name, event %>
               </div>
             <% end %>
           <% end %>

@@ -3,7 +3,15 @@ class ServiceOrdersController < ApplicationController
   # GET /service_orders
   # GET /service_orders.json
   def index
-    @service_orders = ServiceOrder.all
+    
+    if current_user.client? 
+      # @service_orders = ServiceOrder.where(client_id: current_user.client_id).all
+      @service_orders = current_user.client.service_orders.all
+    elsif current_user.colaborator?
+      @service_orders = current_user.service_orders.all
+    else
+      @service_orders = ServiceOrder.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

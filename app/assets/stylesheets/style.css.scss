@@ -32,6 +32,10 @@
   letter-spacing:-1px;
 }
 
+.user_current {
+  text-align: right;;
+}
+
 .menu {
   clear:both; 
   float:left; 
@@ -85,9 +89,9 @@
 
 .table {
   float:left; 
-  width: 715px; 
+  width: 730px; 
   margin: 0; 
-  padding: 15px 15px 0 0;
+  padding: 15px 0 0 0;
   font-size: 1.2em; 
   border-collapse: collapse;
   border: none;

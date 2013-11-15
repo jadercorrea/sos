@@ -10,60 +10,68 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :user_id, "Usuário" %><br />
-    <%= f.select :user_id, options_for_select(@users, @service_order.user_id) %>
-  </div>
+  <% if admin? %>
+    <div class="field">
+      <%= f.label :user_id, "Usuário" %><br />
+      <%= f.select :user_id, options_for_select(@users, @service_order.user_id) %>
+    </div>
+  <% else %>
+    <div class="field">
+      <%= f.label :user_id, "Usuário" %><br />
+      <%= @service_order.user.name %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :client_id, "Cliente" %><br />
     <%= f.select :client_id, options_for_select(@clients, @service_order.client_id) %>
   </div>
   <div class="field">
-    <%= f.label :Módulo %><br />
+    <%= f.label :module, "Módulo" %><br />
     <%= f.text_field :module %>
   </div>
   <div class="field">
-    <%= f.label :Projeto %><br />
+    <%= f.label :project, "Projeto" %><br />
     <%= f.text_field :project %>
   </div>
   <div class="field">
-  <%= f.label :Data %><br />
+  <%= f.label :date, "Data" %><br />
   <%= f.text_field :date, id: "datepicker" %>
   </div>
   <div class="field">
-    <%= f.label :Razão %><br />
+    <%= f.label :reason, "Razão" %><br />
     <%= f.text_field :reason %>
   </div>
   <div class="field">
-    <%= f.label :Solicitante %><br />
+    <%= f.label :requestor, "Solicitante" %><br />
     <%= f.text_field :requestor %>
   </div>
   <div class="field">
-    <%= f.label :Hora_Inicio %><br />
+    <%= f.label :start_time, "Hora Inicio" %><br />
     <%= f.text_field :start_time, :class => 'js_time' %>
   </div>
   <div class="field">
-    <%= f.label :Hora_Fim %><br />
+    <%= f.label :end_time, "Hora Fim" %><br />
     <%= f.text_field :end_time, :class => 'js_time' %>
   </div>
   <div class="field">
-    <%= f.label :Tempo_não_faturável %><br />
+    <%= f.label :non_billable_hours, "Tempo_não_faturável" %><br />
     <%= f.text_field :non_billable_hours, :class => 'js_time' %>
   </div>
   <div class="field">
-    <%= f.label :Outro_tempo_faturável %><br />
+    <%= f.label :other_billable_hours, "Outro_tempo_faturável" %><br />
     <%= f.text_field :other_billable_hours, :class => 'js_time' %>
   </div>
   <div class="field">
-    <%= f.label :Tempo_total %> <br/>
+    <%= f.label :total_time, "Tempo_total" %> <br/>
     <%= f.text_field :total_time, :class => 'js_total_os' %>
   </div>
   <div class="field">
-    <%= f.label :Descrição %><br />
+    <%= f.label :description, "Descrição" %><br />
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :Comentário %><br />
+    <%= f.label :comment, "Comentário" %><br />
     <%= f.text_area :comment %>
   </div>
   <div class="actions">

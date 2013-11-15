@@ -1,0 +1,38 @@
+pt_br:
+  activerecord:
+    errors:
+      models:
+        service_order:
+          attributes:
+            module:
+              blank: "Módulo não pode ficar em branco"
+            project:
+              blank: "Projeto não pode ficar em branco"
+            date:
+              blank: "Data não pode ficar em branco"
+            reason:
+              blank: "Razão não pode ficar em branco"
+            requestor:
+              blank: "Solicitante não pode ficar em branco"
+            start_time:
+              blank: "Hora início não pode ficar em branco"
+            end_time:
+              blank: "Hora fim não pode ficar em branco"
+            total_time:
+              blank: "Tempo total não pode ficar em branco"
+            description:
+              blank: "Descrição não pode ficar em branco"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

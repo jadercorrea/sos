@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     name "Luke Skywalker"
-    email "thegoodson@rebels.org"
+    sequence(:email) { |n| "thegoodson#{n}@rebels.org" }
     association :role
     password "123456"
     password_confirmation "123456"
