@@ -17,8 +17,6 @@
     </div>
   <% end %>  
 
-
-
   <div class="field">
     <%= f.label :status %><br>
     <%= f.select :status, options_for_select([["Pendente", "pending"], ["Em andamento", "processing"], ["Resolvido", "solved"]]) %>
@@ -28,8 +26,15 @@
 
   <div class="messages">
     <% @ticket.messages.each do |message| %>
-      <div class="message">
-        <%= message.text %>
+    
+      <% bg=cycle('even', 'odd')%>
+
+      <div class="message <%=bg%>">
+        <%= current_user.name %> <br />
+        <%= message.text %><br />
+        <div class="dt_mensagem">
+          <%= message.created_at %>
+        </div>
       </div>
     <% end %>
 
@@ -44,6 +49,6 @@
 
   <br>
   <div class="actions">
-    <%= f.submit "Salvar" %>
+    <%= f.submit "Enviar" %>
   </div>
 <% end %>

@@ -3,6 +3,8 @@ require "spec_helper"
 feature "Users profile" do
   background do
     login_into_admin
+    
+    
     @new_user = FactoryGirl.create(:user,
                                    name: "Luan",
                                    email: "luan@altavista.com",

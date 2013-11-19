@@ -25,4 +25,8 @@
 
 
 <%= link_to image_tag('icon_edit.png', :size => '30x30'), edit_user_path(@user) %> 
-<%= link_to image_tag('icon_back.png', :size => '30x30'), users_path %>
+<% if colaborator? || client? %>
+  <%= link_to image_tag('icon_back.png', :size => '30x30'), events_path %>
+<% else %>
+  <%= link_to image_tag('icon_back.png', :size => '30x30'), users_path %>
+<% end %>

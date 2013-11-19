@@ -1,4 +1,4 @@
-<table>
+<table class="tab_user">
   <tr>
     <th>Nome</th>
     <th>Email</th>
@@ -11,13 +11,13 @@
 
 <% @users.each do |user| %>
   <tr class=<%=cycle('even', 'odd')%>>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.role.name %></td>
-    <td><%= user.client_name %></td>
-    <td><%= link_to image_tag('icon_show.png', :size => '20x20'), user %></td>
-    <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_user_path(user), id: "user_#{user.id}" %></td>
-    <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="user_nome"><%= user.name %></td>
+    <td class="user_email"><%= user.email %></td>
+    <td class="user_role"><%= user.role.name %></td>
+    <td class="user_client"><%= user.client_name %></td>
+    <td class="image"><%= link_to image_tag('icon_show.png', :size => '20x20'), user %></td>
+    <td class="image"><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_user_path(user), id: "user_#{user.id}" %></td>
+    <td class="image"><%= link_to image_tag('icon_destroy.png', :size => '20x20'), user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

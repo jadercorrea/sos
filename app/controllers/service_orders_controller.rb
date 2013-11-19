@@ -6,9 +6,9 @@ class ServiceOrdersController < ApplicationController
     
     if current_user.client? 
       # @service_orders = ServiceOrder.where(client_id: current_user.client_id).all
-      @service_orders = current_user.client.service_orders.all
+      @service_orders = current_user.client.service_orders.to_a
     elsif current_user.colaborator?
-      @service_orders = current_user.service_orders.all
+      @service_orders = current_user.service_orders.to_a
     else
       @service_orders = ServiceOrder.all
     end

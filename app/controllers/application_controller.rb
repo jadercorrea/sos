@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def self.allow_user(role_name)
-    self.before_filter { |c| c.allow_user(role_name) }
+    self.before_filter { |c| c.send(:allow_user, role_name) }
   end
 
   def allow_user(role_name)
@@ -21,9 +21,9 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_access
-    Rails.logger.info @@allowed_roles.inspect
-    if @@allowed_roles.present? && current_user.present?
-      raise "Acesso não permitido" unless @@allowed_roles.include?(current_user.role.to_sym)
+    # Rails.logger.info @allowed_roles.inspect
+    if @allowed_roles.present? && current_user.present?
+      raise "Acesso não permitido" unless @allowed_roles.include?(current_user.role.to_sym)
     end
   end
 end

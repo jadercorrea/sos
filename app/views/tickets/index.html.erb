@@ -1,4 +1,4 @@
-<table>
+<table class="tab_ticket">
   <tr>
     <th>Título</th>
     <th>Cliente</th>
@@ -10,16 +10,18 @@
 
 <% @tickets.each do |ticket| %>
   <tr class=<%=cycle('even', 'odd')%>>
-    <td><%= ticket.title %></td>
-    <td><%= ticket.client.name %></td>
-    <td>
+    <td class="title_ticket"><%= ticket.title %></td>
+    <td class="client_ticket"><%= ticket.client.name %></td>
+    <td class="colaborator_ticket">
     <% if ticket.user.present? %>
       <%= ticket.user.name %>
     <% end %>
     </td>
-    <td><%= t("status.#{ticket.status}") %></td>
-    <td><%= link_to image_tag('icon_edit.png', :size => '20x20'), edit_ticket_path(ticket), id: "edit_ticket" %></td>
-    <td><%= link_to image_tag('icon_destroy.png', :size => '20x20'), ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td  class="status_ticket"><%= t("status.#{ticket.status}") %></td>
+    <td class="image"><%= link_to image_tag('icon_show.png', :size => '20x20'), edit_ticket_path(ticket), id: "edit_ticket" %></td>
+    <% if admin? %>
+      <td class="image"><%= link_to image_tag('icon_destroy.png', :size => '20x20'), ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
