@@ -26,7 +26,7 @@ feature "Events" do
       current_path.should == events_path
 
       within ".day_24" do
-        page.should have_content "Meu evento"
+        page.should have_content "Luke"
       end
     end
   end

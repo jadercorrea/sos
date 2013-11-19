@@ -27,7 +27,7 @@ feature "Tickets" do
     select "Pendente", from: "Status"
     page.should have_selector("#ticket_user_id")
     fill_in "message_field", with: "Aqui está um ticket"
-    click_button "Salvar"
+    click_button "Enviar"
     current_path.should == tickets_path
     page.should have_content "Título do ticket"
     page.should have_content "Luan"
@@ -53,7 +53,7 @@ feature "Tickets" do
       select "Em andamento", from: "Status"
       # save_and_open_page
       select @user.name, from: "Colaborador"
-      click_button "Salvar"
+      click_button "Enviar"
       page.should have_content "Luan"
       page.should have_content "Em andamento"
     end
@@ -62,7 +62,7 @@ feature "Tickets" do
       page.should have_content "This is a ticket message"
 
       fill_in "message_field", with: "My second message"
-      click_button "Salvar"
+      click_button "Enviar"
 
       page.should have_content "This is a ticket message"
       page.should have_content "My second message"

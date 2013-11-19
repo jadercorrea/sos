@@ -1,0 +1,29 @@
+.tab_ticket {
+  width: 100%;
+}
+
+.message {
+  height: 50px;
+}
+
+.dt_mensagem {
+  font-size: 10px;
+  color: #D3D3D3;
+}
+
+  td.title_ticket {
+    width: 300px;
+    padding-left: 5px;
+  }
+  td.client_ticket {
+    width: 150px;
+    padding-left: 5px;
+  }
+  td.colaborator_ticket {
+    width: 110px;
+    padding-left: 5px;
+  } 
+  td.status_ticket {
+    width: 100px;
+    padding-left: 5px;
+  }

@@ -11,23 +11,41 @@
 <div class='main'>
 	<div class='header'>
 		<h1>S-GOS</h1>
-		<p class='slogan'>Sistema de Gerenciamento de Ordens de Serviço </p>
+    <p class='slogan'>Sistema de Gerenciamento de Ordens de Serviço </p>
 	</div>
 	<div class='body'>
+    <div class="user_current">
+      Olá <%= current_user.role.name %><br />
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    </div>
 		<div class='menu'>
-
 			<h2 class='hide'>Menu:</h2>
 			<ul>
-				<li><%= link_to 'Ordens de Serviço', service_orders_path, class: current("service_orders") %> </li>
-				<li><%= link_to 'Tickets', tickets_path, class: current("tickets")  %> </li>
-				<li><%= link_to 'Clientes', clients_path, class: current("clients")  %> </li>
-				<li><%= link_to 'Usuários', users_path, class: current("users")  %> </li>
-				<li><%= link_to 'Roles', roles_path, class: current("roles")  %> </li>
-				<li><%= link_to 'Eventos', events_path, class: current("events")  %> </li>
-        <% if admin? %>
+        <li><%= link_to 'Eventos', events_path, class: current("events")  %> </li>
+
+        <li><%= link_to 'Tickets', tickets_path, class: current("tickets")  %> </li>
+
+        <li><%= link_to 'Ordens de Serviço', service_orders_path, class: current("service_orders") %> </li>
+        
+				<% if admin? %>
           <li><%= link_to 'Relatórios', reports_path, class: current("reports")  %> </li>
         <% end %>
-				<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %> </li>
+				
+        <% if admin? %>
+          <li><%= link_to 'Roles', roles_path, class: current("roles")  %> </li>
+        <% end %>
+
+        <% if admin? %>
+          <li><%= link_to 'Clientes', clients_path, class: current("clients")  %> </li>
+        <% end %>
+		    
+        <% if admin? %>
+          <li><%= link_to 'Usuários', users_path, class: current("users")  %> </li>
+			 	<% end %>
+        
+        <% if colaborator? || client? %>
+          <li><%= link_to 'Meu Perfil', user_path(current_user), class: current("users")  %> </li>
+        <% end %>
 			</ul>
 		</div>
 		<div class='table'>
@@ -36,6 +54,9 @@
 	</div>
 </div>
 </body>
+  <div class='footer'>
+    <div class="tit_rodape">Todos os direitos reservados &#169;2013 - Desenvolvido por <a href="http://twitter.com/luan_jodar">Luan Jodar</a>.</div>
+  </div>
 </html>
 
 <!--<%= params.inspect %>

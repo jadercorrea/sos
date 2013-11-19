@@ -3,4 +3,8 @@
 <%= render 'form' %>
 
 <%= link_to image_tag('icon_show.png', :size => '30x30'), @user %> 
-<%= link_to image_tag('icon_back.png', :size => '30x30'), users_path %>
+<% if colaborator? || client? %>
+  <%= link_to image_tag('icon_back.png', :size => '30x30'), @user %>
+<% else %>
+  <%= link_to image_tag('icon_back.png', :size => '30x30'), users_path %>
+<% end %>
