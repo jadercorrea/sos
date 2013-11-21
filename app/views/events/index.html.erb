@@ -1,37 +1,4 @@
-<!--
-<table width="100%">
-  <thead>
-    <tr>
-      <th>Título</th>
-      <th>Descrição</th>
-      <th>Data</th>
-      <th>Cliente</th>
-      <th>Usuário</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr class=<%=cycle('even', 'odd')%>>
-        <td class="title"><%= event.title %></td>
-        <td class="description"><%= event.description %></td>
-        <td class=""><%= event.start_datetime %></td>
-        <td class="client"><%= event.client.name %></td>
-        <td class="user"><%= event.user.name %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
--->
-
+<%= render 'calendar' %>
 <%= link_to 'Novo evento', new_event_path, id: "new_event" %>
 
-<%= render 'calendar' %>
+

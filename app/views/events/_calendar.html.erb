@@ -1,24 +1,32 @@
-<% year = Time.now.year %>
-<% month = Time.now.month %>
+<% year = (params[:year] || Time.now.year).to_i %>
+<% month = (params[:month] || Time.now.month).to_i %>
+
+<% month_num = (params[:month] || Time.now.month).to_i %>
 
 <% max_cols = 6 %>
 <% days_in_month = Date.new(year, month, -1).mday %>
 <% current_col = 0 %>
 <% day_in_week = Date.new(year, month, 1).wday %>
 
-<table class="calendar"><br><br>
+<table class="calendar">
+  <tr>
+    <div class="bt_prev"><%= link_to image_tag('icon_back.png', :size => '30x30', :title => 'Anterior'),events_path(month: previous_month(month), year: previous_year(month_num, year)) %></div>
+    <div class="tit_calendar"><%= month_name(month) %> <%= year %></div>
+
+    <div class="bt_next"><%= link_to image_tag('icon_next.png', :size => '30x30', :title => 'Próximo'), events_path(month: next_month(month), year: next_year(month, year)) %></div>
+  </tr>
+
   <tr class="week">
-    <td class="day">Domingo</td>
-    <td class="day">Segunda</td>
-    <td class="day">Terça</td>
-    <td class="day">Quarta</td>
-    <td class="day">Quinta</td>
-    <td class="day">Sexta</td>
-    <td class="day">Sábado</td>
+    <td class="tit_day">Domingo</td>
+    <td class="tit_day">Segunda</td>
+    <td class="tit_day">Terça</td>
+    <td class="tit_day">Quarta</td>
+    <td class="tit_day">Quinta</td>
+    <td class="tit_day">Sexta</td>
+    <td class="tit_day">Sábado</td>
   </tr>
 
   <tr>
-    
     <% i = 0 %>
     <% tmp = 0 %>
     <% day = 0 %>
@@ -42,7 +50,7 @@
             <%= i %>
             <br />
 
-            <% todays_events(@events, i).each do |event| %>
+            <% todays_events(@events, i, month, year).each do |event| %>
               <div class="event_title">
                 <%= link_to event.user.name, event %>
               </div>

@@ -33,13 +33,7 @@
 				
         <% if admin? %>
           <li><%= link_to 'Roles', roles_path, class: current("roles")  %> </li>
-        <% end %>
-
-        <% if admin? %>
           <li><%= link_to 'Clientes', clients_path, class: current("clients")  %> </li>
-        <% end %>
-		    
-        <% if admin? %>
           <li><%= link_to 'Usuários', users_path, class: current("users")  %> </li>
 			 	<% end %>
         

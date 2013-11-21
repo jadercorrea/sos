@@ -27,9 +27,9 @@
   <div class="messages">
     <% @ticket.messages.each do |message| %>
     
-      <% bg=cycle('even', 'odd')%>
+      <% bg = cycle('even', 'odd')%>
 
-      <div class="message <%=bg%>">
+      <div class="message <%= bg %>">
         <%= current_user.name %> <br />
         <%= message.text %><br />
         <div class="dt_mensagem">
@@ -40,7 +40,7 @@
 
     <br />
     <br />
-    <%= f.label :text, "Message" %> <br>
+    <%= f.label :text, "Mensagem" %> <br>
     <%= f.fields_for :messages do |m| %>
       <% next if m.object.persisted? %>
       <%= m.text_area :text, id: "message_field" %>
