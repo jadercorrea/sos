@@ -1,4 +1,6 @@
 <%= render 'calendar' %>
-<%= link_to 'Novo evento', new_event_path, id: "new_event" %>
+<% if admin? || colaborator? %>
+  <%= link_to 'Novo evento', new_event_path, id: "new_event" %>
+<% end %>
 
 

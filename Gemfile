@@ -14,7 +14,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
+gem 'kaminari'
 group :test, :development do
   gem 'rspec-rails'
 # gem 'thin'

@@ -5,4 +5,5 @@ class Client < ActiveRecord::Base
   has_many :service_orders
 
   validates_presence_of :name
+
 end
