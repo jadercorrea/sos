@@ -2,7 +2,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.this_month.to_a
+    if current_user.admin? || current_user.colaborator?
+      @events = Event.this_month.to_a
+    else
+      @events = current_user.client.events.to_a
+    end
   end
 
   def show

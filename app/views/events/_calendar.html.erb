@@ -51,9 +51,16 @@
             <br />
 
             <% todays_events(@events, i, month, year).each do |event| %>
-              <div class="event_title">
-                <%= link_to event.user.name, event %>
-              </div>
+              <% if admin? || colaborator? %>
+                <div class="event_title">
+                  <%= link_to event.user.name, event %>
+                </div>
+              
+              <% else %>
+                <div class="event_title">
+                  <%= link_to event.title, event %>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
 

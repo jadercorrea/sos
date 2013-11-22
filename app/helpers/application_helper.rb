@@ -6,4 +6,7 @@ module ApplicationHelper
 		end
 	end
 
+  def date(current_date)
+    current_date.strftime("%d/%m/%Y")
+  end
 end

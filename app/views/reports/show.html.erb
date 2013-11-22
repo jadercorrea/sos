@@ -1,8 +1,38 @@
-
-<h1>Horas trabalhadas</h1>
+<table>
+<h2>&nbsp;Colaboradores</h2>
+  <tr>
+    <th>Nome</th>
+    <th>Total de Horas</th>
+  </tr>
 
 <% @users.each do |user| %>
-  <div class="user_<%= user.id %>">
-    <%= user.name %>: <%= user.total_time %>
-  </div>
+  <tr class="user_<%= user.id %> <%=cycle('even', 'odd')%>">
+    <td class="cal_hrs_nm">
+      <%= user.name %>
+    </td>
+    <td class="cal_hrs"> 
+      <%= user.total_time %>
+    </td>
+  </tr>
 <% end %>
+</table>
+
+<table>
+<h2>&nbsp;Clientes </h2>
+  <tr>
+    <th>Nome</th>
+    <th>Total de Horas</th>
+  </tr>
+
+<% @clients.each do |client| %>
+  <tr class="client_<%= client.id %> <%=cycle('even', 'odd')%>">
+    <td class="cal_hrs_nm">
+      <%= client.name %>
+    </td>
+    <td class="cal_hrs">
+       <%= client.total_time %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%= paginate @clients %>

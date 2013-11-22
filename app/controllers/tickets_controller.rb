@@ -7,7 +7,7 @@ class TicketsController < ApplicationController
     if current_user.client?
       @tickets = current_user.client.tickets.all
     else
-      @tickets = Ticket.all
+      @tickets = Ticket.page(params['page']).per(10)
     end 
   end
 
