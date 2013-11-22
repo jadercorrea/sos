@@ -12,4 +12,5 @@ class Client < ActiveRecord::Base
     total = self.service_orders.map { |a| a.total_time }
     StringTime.new(total).total_time
   end
+
 end

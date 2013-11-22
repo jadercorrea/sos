@@ -2,13 +2,28 @@
   width: 100%;
 }
 
+.campo_message {
+  height: 60px;
+}
+
+.nm_user {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 5px 5px 5px;
+}
+
 .message {
-  height: 50px;
+  padding: 0 5px 5px 5px;
 }
 
 .dt_mensagem {
   font-size: 10px;
-  color: #D3D3D3;
+  color: #999;
+  padding: 0 5px 5px 5px;
+}
+
+.desc_message {
+  width: 500px;
 }
 
   td.title_ticket {

@@ -37,5 +37,8 @@
 </table>
 
 <br />
-<%= paginate @service_orders %>
-<%= link_to image_tag('icon_new.png', :size => '30x30', :title => 'Adicionar'), new_service_order_path %>
+
+<% if admin? || colaborator? %>
+  <%= paginate @service_orders %>
+  <%= link_to image_tag('icon_new.png', :size => '30x30', :title => 'Adicionar'), new_service_order_path %>
+<% end %>
