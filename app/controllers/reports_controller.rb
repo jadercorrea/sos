@@ -3,5 +3,6 @@ class ReportsController < ApplicationController
 
   def show
     @users = User.all
+    @clients = Client.page(params['page']).per(10)
   end
 end

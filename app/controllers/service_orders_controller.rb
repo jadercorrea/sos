@@ -6,11 +6,11 @@ class ServiceOrdersController < ApplicationController
     
     if current_user.client? 
       # @service_orders = ServiceOrder.where(client_id: current_user.client_id).all
-      @service_orders = current_user.client.service_orders.to_a
+      @service_orders = current_user.client.service_orders.page(params['page']).per(10)
     elsif current_user.colaborator?
-      @service_orders = current_user.service_orders.to_a
+      @service_orders = current_user.service_orders.page(params['page']).per(10)
     else
-      @service_orders = ServiceOrder.all
+      @service_orders = ServiceOrder.page(params['page']).per(10)
     end
 
     respond_to do |format|

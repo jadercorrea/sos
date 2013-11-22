@@ -27,23 +27,29 @@
   <div class="messages">
     <% @ticket.messages.each do |message| %>
     
-      <% bg=cycle('even', 'odd')%>
+      <% bg = cycle('even', 'odd')%>
 
-      <div class="message <%=bg%>">
-        <%= current_user.name %> <br />
-        <%= message.text %><br />
+      <div class="campo_message <%= bg %>">
+        <div class="nm_user">
+          <%= current_user.name %> <br />
+        </div>
+        <div class="message">
+          <%= message.text %><br />
+        </div>
         <div class="dt_mensagem">
-          <%= message.created_at %>
+          <%= message.created_at.strftime(" Enviada dia %d/%m/%Y às %I:%M %p") if message.created_at.present? %>
         </div>
       </div>
     <% end %>
 
     <br />
     <br />
-    <%= f.label :text, "Message" %> <br>
+    <%= f.label :text, "Mensagem" %> <br>
     <%= f.fields_for :messages do |m| %>
       <% next if m.object.persisted? %>
-      <%= m.text_area :text, id: "message_field" %>
+      <div class="desc_message">
+        <%= m.text_area :text, id: "message_field", :size => '50x5' %>
+      </div>
     <% end %>
   </div>
 

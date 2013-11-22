@@ -34,6 +34,7 @@
 
 .user_current {
   text-align: right;
+  padding: 0 4px 4px 0;
 }
 
 .menu {
@@ -91,7 +92,7 @@
   float:left; 
   width: 730px; 
   margin: 0; 
-  padding: 15px 0 0 0;
+  padding: 24px 0 0 0;
   font-size: 1.2em; 
   border-collapse: collapse;
   border: none;
@@ -99,10 +100,12 @@
 
 .even {
   background: #e3edfd;
+  height: 30px;
 }
 
 .odd {
   background: #fdfdfd;
+  height: 30px;
 }
 
 td {

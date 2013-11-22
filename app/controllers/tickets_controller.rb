@@ -5,9 +5,9 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     if current_user.client?
-      @tickets = current_user.client.tickets.all
+      @tickets = current_user.client.tickets.page(params['page']).per(10)
     else
-      @tickets = Ticket.all
+      @tickets = Ticket.page(params['page']).per(10)
     end 
   end
 

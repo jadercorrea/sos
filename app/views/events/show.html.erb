@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @event.title %>
 </p>
 
@@ -13,23 +13,23 @@
 <% end %>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @event.description %>
 </p>
 <p>
-  <strong>Começa em:</strong>
+  <strong>Data:</strong>
   <%= @event.start_datetime %>
 </p>
 <p>
-  <strong>Client:</strong>
+  <strong>Cliente:</strong>
   <%= @event.client.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Colaborador:</strong>
   <%= @event.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
-<%= link_to 'Destroy', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to image_tag('icon_edit.png', :size => '30x30', :title => 'Editar'), edit_event_path(@event) %> &nbsp;
+<%= link_to image_tag('icon_back.png', :size => '30x30', :title => 'Voltar'), events_path %> &nbsp;
+<%= link_to image_tag('icon_destroy.png', :size => '30x30', :title => 'Deletar'), event_path(@event), method: :delete, data: { confirm: 'Are you sure?' } %>
