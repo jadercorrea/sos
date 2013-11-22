@@ -37,7 +37,7 @@
           <%= message.text %><br />
         </div>
         <div class="dt_mensagem">
-          <%= message.created_at %>
+          <%= message.created_at.strftime(" Enviada dia %d/%m/%Y às %I:%M %p") if message.created_at.present? %>
         </div>
       </div>
     <% end %>
