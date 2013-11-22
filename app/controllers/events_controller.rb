@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     if current_user.admin? || current_user.colaborator?
       @events = Event.this_month(year, month).to_a
     else
-      @events = current_user.client.events.to_a
+      @events = current_user.client.events.this_month(year, month).to_a
     end
   end
 
