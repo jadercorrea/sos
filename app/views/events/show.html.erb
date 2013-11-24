@@ -18,7 +18,7 @@
 </p>
 <p>
   <strong>Data:</strong>
-  <%= @event.start_datetime %>
+  <%= @event.start_datetime.strftime("%d/%m/%Y às %I:%M %p") %>
 </p>
 <p>
   <strong>Cliente:</strong>

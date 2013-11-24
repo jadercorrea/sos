@@ -4,6 +4,7 @@
     <th>Cliente</th>
     <th>Colaborador</th>
     <th>Status</th>
+    <th>Data</th>
     <th></th>
     <th></th>
   </tr>
@@ -18,6 +19,7 @@
     <% end %>
     </td>
     <td  class="status_ticket"><%= t("status.#{ticket.status}") %></td>
+    <td class="date" ><%= ticket.created_at.strftime("%d/%m/%Y") %></td>
     <td class="image"><%= link_to image_tag('icon_show.png', :size => '20x20'), edit_ticket_path(ticket), id: "edit_ticket" %></td>
     <% if admin? %>
       <td class="image"><%= link_to image_tag('icon_destroy.png', :size => '20x20'), ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>

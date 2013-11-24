@@ -39,6 +39,7 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     @ticket = Ticket.new(params[:ticket])
+    @ticket.messages.first.user = current_user
 
     respond_to do |format|
       if @ticket.save
@@ -55,6 +56,7 @@ class TicketsController < ApplicationController
   # PUT /tickets/1.json
   def update
     @ticket = Ticket.find(params[:id])
+    @ticket.messages.select { |msg| msg.user.blank? }.each { |msg| msg.user = current_user }
 
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])

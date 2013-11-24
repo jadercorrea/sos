@@ -46,6 +46,7 @@
     <%= f.label :requestor, "Solicitante" %><br />
     <%= f.text_field :requestor %>
   </div>
+
   <div class="field">
     <%= f.label :start_time, "Hora Inicio" %><br />
     <%= f.text_field :start_time, :class => 'js_time' %>
@@ -63,16 +64,16 @@
     <%= f.text_field :other_billable_hours, :class => 'js_time' %>
   </div>
   <div class="field">
-    <%= f.label :total_time, "Tempo_total" %> <br/>
+    <%= f.label :total_time, "Tempo total" %> <br/>
     <%= f.text_field :total_time, :class => 'js_total_os' %>
   </div>
   <div class="field">
     <%= f.label :description, "Descrição" %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :size => '50x5' %>
   </div>
   <div class="field">
     <%= f.label :comment, "Comentário" %><br />
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, :size => '50x5' %>
   </div>
   <div class="actions">
     <%= f.submit %>
