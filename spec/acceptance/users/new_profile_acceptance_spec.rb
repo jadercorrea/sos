@@ -15,6 +15,7 @@ feature "Users profile creation" do
     fill_in "user_email",    with: "juan@altavista.com"
     fill_in "user_password", with: "12345678"
     fill_in "user_password_confirmation", with: "12345678"
+    select "Admin", from: "user_role_id"
 
     click_button "Create User"
     current_path.should == user_path(User.last)

@@ -1,7 +1,6 @@
 require "spec_helper"
 
 feature "Correct menus" do
-  
   scenario "As an admin, I want to see the correct menus" do
     login_into_admin
     page.should have_content("Ordens de Serviço")
@@ -13,12 +12,12 @@ feature "Correct menus" do
     page.should have_content("Relatórios")
     page.should have_content("Logout")
   end
-  
+
   scenario "As an colaborator, I want to see the correct menus" do
     colaborador = FactoryGirl.create(:role, name: "Colaborador")
     @user = FactoryGirl.create(:user, role: colaborador)
     login_into_admin(@user)
-      
+
     page.should have_content("Ordens de Serviço")
     page.should have_content("Tickets")
     page.should have_content("Meu Perfil")
@@ -30,7 +29,7 @@ feature "Correct menus" do
     cliente = FactoryGirl.create(:role, name: "Cliente")
     @user = FactoryGirl.create(:user, role: cliente)
     login_into_admin(@user)
-      
+
     page.should have_content("Ordens de Serviço")
     page.should have_content("Tickets")
     page.should have_content("Meu Perfil")

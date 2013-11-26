@@ -30,16 +30,16 @@
     <%= f.password_field :password_confirmation, html: { autocomplete: "off" } %>
   </div>
 
-  <% if admin? %>
+  <% if admin? && @user != current_user %>
     <div class="field">
       <%= f.label :role_id, "Função" %><br />
-      <%= f.select :role_id, options_for_select(@roles), { :include_blank => '-selecione-' } %>
+      <%= f.select :role_id, options_for_select(@roles, selected: @user.role_id), { :include_blank => '-selecione-' } %>
     </div>
   <% end %>
 
   <div class="field client_id">
     <%= f.label :client_id, "Empresa" %><br />
-    <%= f.select :client_id, options_for_select(@clients), { :include_blank => '-selecione-' } %>
+    <%= f.select :client_id, options_for_select(@clients, selected: @user.client_id), { :include_blank => '-selecione-' } %>
   </div>
 
   <div class="actions">

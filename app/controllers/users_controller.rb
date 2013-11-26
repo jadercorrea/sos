@@ -62,6 +62,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       redirect_to users_path, notice: 'User was successfully updated.'
     else
+      @clients = Client.all.map { |m| [m.name, m.id] }
       render action: "edit"
     end
   end

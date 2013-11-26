@@ -4,11 +4,13 @@ class EventsController < ApplicationController
   def index
     year = (params[:year] || Time.now.year).to_i
     month = (params[:month] || Time.now.month).to_i
-    
+
     if current_user.admin? || current_user.colaborator?
       @events = Event.this_month(year, month).to_a
-    else
+    elsif current_user.client.present?
       @events = current_user.client.events.this_month(year, month).to_a
+    else
+      @events = []
     end
   end
 
