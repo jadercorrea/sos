@@ -25,15 +25,18 @@
     <%= f.label :start_datetime, "Data e Horário" %><br />
     <%= f.datetime_select :start_datetime, :default => { :hour => 23, :minute => 59 } %>
   </div>
-  <div class="field">
-    <%= f.label :client_id, "Cliente" %><br>
-    <%= f.select :client_id, options_for_select(@clients, @event.client_id) %>
-  </div>
 
-  <div class="field">
-    <%= f.label :user_id, "Colaborador" %><br>
-    <%= f.select :user_id, options_for_select(@users, @event.user_id) %>
-  </div>
+  <% if admin? || colaborator? %>
+    <div class="field">
+      <%= f.label :client_id, "Cliente" %><br>
+      <%= f.select :client_id, options_for_select(@clients, @event.client_id) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :user_id, "Colaborador" %><br>
+      <%= f.select :user_id, options_for_select(@users, @event.user_id) %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Salvar" %>
