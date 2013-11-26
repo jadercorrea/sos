@@ -5,6 +5,7 @@ feature "Events" do
   background do
     login_into_admin
     @client = FactoryGirl.create(:client, name: "Luan")
+    @colaborator = FactoryGirl.create(:user, :colaborator)
   end
 
   scenario "As admin, I want to create an event" do
@@ -20,6 +21,7 @@ feature "Events" do
       select "2013", from: "event_start_datetime_1i"
 
       select "Luan", from: "event_client_id"
+      select @colaborator.name, from: "event_user_id"
 
       click_button "Salvar"
 

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :load_resources, only: [:new, :edit, :update, :create]
 
   def index
     year = (params[:year] || Time.now.year).to_i
@@ -20,7 +21,6 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @clients = Client.all.map { |m| [m.name, m.id] }
 
     if params[:from_ticket].present?
       @ticket = Ticket.find(params[:from_ticket])
@@ -32,7 +32,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @clients = Client.all.map { |m| [m.name, m.id] }
   end
 
   # POST /events
@@ -80,5 +79,10 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :description, :start_datetime, :client_id, :ticket_id)
+    end
+
+    def load_resources
+      @clients = Client.all.map { |m| [m.name, m.id] }
+      @users = User.colaborators.to_a.map { |m| [m.name, m.id] }
     end
 end
