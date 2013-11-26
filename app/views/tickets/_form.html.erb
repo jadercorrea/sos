@@ -30,7 +30,7 @@
 
       <% bg = cycle('even', 'odd')%>
 
-      <div class="campo_message <%= bg %>">
+      <div class="campo_message message_<%= message.id %> <%= bg %>">
         <div class="nm_user">
           <%= message.user.name %> <br />
         </div>

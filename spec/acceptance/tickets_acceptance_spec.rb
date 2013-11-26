@@ -7,8 +7,8 @@ feature "Tickets" do
     @client  = FactoryGirl.create(:client, name: "Buiu")
     @client2 = FactoryGirl.create(:client, name: "Luan")
     role = FactoryGirl.create(:role, name: "Colaborador")
-    @user = FactoryGirl.create(:user, role: role)
-    @ticket  = FactoryGirl.create(:ticket, client: @client2, user: @user)
+    @another_user = FactoryGirl.create(:user, role: role)
+    @ticket  = FactoryGirl.create(:ticket, client: @client2, user: @another_user)
   end
 
   scenario "As admin, I want to see the all the tickets" do
@@ -52,18 +52,27 @@ feature "Tickets" do
 
       select "Em andamento", from: "Status"
       # save_and_open_page
-      select @user.name, from: "Colaborador"
+      select @another_user.name, from: "Colaborador"
       click_button "Enviar"
       page.should have_content "Luan"
       page.should have_content "Em andamento"
     end
 
     scenario "As admin, I want to add messages to a ticket" do
+      first_message = @ticket.messages.first
+      within ".message_#{first_message.id}" do
+        page.should have_content @another_user.name
+      end
+
       page.should have_content "This is a ticket message"
 
       fill_in "message_field", with: "My second message"
       click_button "Enviar"
 
+      second_message = @ticket.messages.last
+      within ".message_#{second_message.id}" do
+        page.should have_content @user.name
+      end
       page.should have_content "This is a ticket message"
       page.should have_content "My second message"
       current_path.should == edit_ticket_path(@ticket)
