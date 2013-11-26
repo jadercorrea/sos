@@ -1,8 +1,9 @@
 class ServiceOrdersController < ApplicationController
+  before_filter :load_resources, only: [:new, :edit, :update, :create]
+
   # GET /service_orders
   # GET /service_orders.json
   def index
-
     if current_user.client?
       # @service_orders = ServiceOrder.where(client_id: current_user.client_id).all
       @service_orders = current_user.client.service_orders.page(params['page']).per(10)
@@ -33,8 +34,6 @@ class ServiceOrdersController < ApplicationController
   # GET /service_orders/new.json
   def new
     @service_order = ServiceOrder.new
-    @clients = Client.all.map { |m| [m.name, m.id] }
-    @users = User.as_clients.to_a.map { |n| [n.name, n.id] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,17 +44,12 @@ class ServiceOrdersController < ApplicationController
   # GET /service_orders/1/edit
   def edit
     @service_order = ServiceOrder.find(params[:id])
-    @clients = Client.all.map { |m| [m.name, m.id] }
-    @users = User.all.map { |n| [n.name, n.id] }
-
   end
 
   # POST /service_orders
   # POST /service_orders.json
   def create
     @service_order = ServiceOrder.new(params[:service_order])
-    @clients = Client.all.map { |m| [m.name, m.id] }
-    @users = User.all.map { |n| [n.name, n.id] }
 
     respond_to do |format|
       if @service_order.save
@@ -72,8 +66,6 @@ class ServiceOrdersController < ApplicationController
   # PUT /service_orders/1.json
   def update
     @service_order = ServiceOrder.find(params[:id])
-    @clients = Client.all.map { |m| [m.name, m.id] }
-    @users = User.all.map { |n| [n.name, n.id] }
 
     if @service_order.update_attributes(params[:service_order])
       redirect_to @service_order, notice: 'Service order was successfully updated.'
@@ -92,5 +84,12 @@ class ServiceOrdersController < ApplicationController
       format.html { redirect_to service_orders_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def load_resources
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.colaborators.to_a.map { |n| [n.name, n.id] }
   end
 end
