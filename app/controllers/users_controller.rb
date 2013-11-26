@@ -1,32 +1,17 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
+  before_filter :load_resources, only: [:new, :edit, :update, :create]
   def index
     @users = User.all.order(:name)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
-    end
   end
 
   # GET /users/new
   # GET /users/new.json
   def new
     @user = User.new
-    @roles = Role.all.map { |m| [m.name, m.id] }
-    @clients = Client.all.map { |m| [m.name, m.id] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,8 +22,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    @roles = Role.all.map { |m| [m.name, m.id] }
-    @clients = Client.all.map { |m| [m.name, m.id] }
   end
 
   # POST /users
@@ -56,13 +39,11 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @roles = Role.all.map { |m| [m.name, m.id] }
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
       redirect_to users_path, notice: 'User was successfully updated.'
     else
-      @clients = Client.all.map { |m| [m.name, m.id] }
       render action: "edit"
     end
   end
@@ -73,9 +54,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
+    redirect_to users_url
+  end
+
+
+  private
+
+  def load_resources
+    @roles = Role.all.map { |m| [m.name, m.id] }
+    @clients = Client.all.map { |m| [m.name, m.id] }
   end
 end

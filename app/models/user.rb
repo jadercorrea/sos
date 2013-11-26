@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :role_id, presence: true
   validates :password, presence: true, on: :creation
+  validates :email, uniqueness: true
 
   scope :colaborators, -> { joins(:role).where("roles.name = ?", "Colaborador") }
 

@@ -2,6 +2,10 @@ pt_br:
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            email:
+              taken: "já foi usado por outro usuário"
         service_order:
           attributes:
             module:

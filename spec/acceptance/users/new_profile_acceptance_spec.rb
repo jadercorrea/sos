@@ -5,7 +5,7 @@ feature "Users profile creation" do
     login_into_admin
   end
 
-  scenario "As an user, I want to create another user" do
+  scenario "As an admin, I want to create another user" do
     click_link "Usuários"
     page.should have_content("Luke")
 
@@ -30,5 +30,22 @@ feature "Users profile creation" do
     click_button "Login"
     page.should have_content("Roles")
     page.should have_content("Logout")
+  end
+
+  scenario "As admin, I can't create users with duplicated emails" do
+    click_link "Usuários"
+    page.should have_content("Luke")
+
+    click_link "new_user"
+
+    fill_in "user_name",     with: "Juan"
+    fill_in "user_email",    with: @user.email
+    fill_in "user_password", with: "12345678"
+    fill_in "user_password_confirmation", with: "12345678"
+    select "Admin", from: "user_role_id"
+
+    click_button "Create User"
+    page.should have_content "Email já foi usado por outro usuário"
+    current_path.should == users_path
   end
 end
