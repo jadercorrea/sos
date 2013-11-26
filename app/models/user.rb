@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   scope :colaborators, -> { joins(:role).where("roles.name = ?", "Colaborador") }
+  scope :as_clients, -> { joins(:role).where("roles.name = ?", "Cliente") }
 
   def total_time
     worked_times = self.service_orders.map(&:total_time)

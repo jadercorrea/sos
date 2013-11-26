@@ -1,10 +1,9 @@
 class ServiceOrdersController < ApplicationController
-  
   # GET /service_orders
   # GET /service_orders.json
   def index
-    
-    if current_user.client? 
+
+    if current_user.client?
       # @service_orders = ServiceOrder.where(client_id: current_user.client_id).all
       @service_orders = current_user.client.service_orders.page(params['page']).per(10)
     elsif current_user.colaborator?
@@ -35,7 +34,7 @@ class ServiceOrdersController < ApplicationController
   def new
     @service_order = ServiceOrder.new
     @clients = Client.all.map { |m| [m.name, m.id] }
-    @users = User.all.map { |n| [n.name, n.id] }
+    @users = User.as_clients.to_a.map { |n| [n.name, n.id] }
 
     respond_to do |format|
       format.html # new.html.erb
