@@ -1,14 +1,16 @@
 module EventHelper
   def todays_events(events, day, month, year)
-    events.select { |e| e.start_datetime.day == day && e.start_datetime.month == month && e.start_datetime.year == year }
+    events.select do |e|
+      e.start_datetime.day == day && e.start_datetime.month == month && e.start_datetime.year == year
+    end
   end
 
   def next_month(month)
     month += 1
     month = 1 if month > 12
-    month 
+    month
   end
-      
+
   def next_year(month, year)
     next_year = year 
     next_year += 1 if (month += 1) > 12

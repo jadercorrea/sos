@@ -14,7 +14,8 @@ feature "Reports" do
     current_path.should == reports_path
 
     within ".user_#{@user.id}" do
-      page.should have_content "#{@user.name}: 3:40"
+      page.should have_content "#{@user.name}"
+      page.should have_content "3:40"
     end
   end
 end
