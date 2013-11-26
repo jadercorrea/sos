@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   before_filter :load_clients, only: [:new, :edit, :create, :update]
   before_filter :load_users, only: [:new, :edit, :create, :update]
+
   # GET /tickets
   # GET /tickets.json
   def index
@@ -58,14 +59,14 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     @ticket.messages.select { |msg| msg.user.blank? }.each { |msg| msg.user = current_user }
 
-    respond_to do |format|
-      if @ticket.update_attributes(params[:ticket])
-        format.html { redirect_to edit_ticket_path(@ticket), notice: 'Ticket was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+    params[:ticket][:messages_attributes].each do |key, value|
+      params[:ticket][:messages_attributes][key] = value.merge(:user_id => current_user.id)
+    end
+
+    if @ticket.update_attributes(params[:ticket])
+      redirect_to edit_ticket_path(@ticket), notice: 'Ticket was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 

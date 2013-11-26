@@ -26,7 +26,8 @@
 
   <div class="messages">
     <% @ticket.messages.each do |message| %>
-    
+      <% next unless message.persisted? %>
+
       <% bg = cycle('even', 'odd')%>
 
       <div class="campo_message <%= bg %>">

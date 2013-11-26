@@ -7,5 +7,9 @@ class Ticket < ActiveRecord::Base
   belongs_to :client
   belongs_to :user
 
-  accepts_nested_attributes_for :messages
+  accepts_nested_attributes_for :messages, reject_if: proc { |attrs|
+    attrs["text"].blank?
+  }
+
+  validates :user, presence: true
 end

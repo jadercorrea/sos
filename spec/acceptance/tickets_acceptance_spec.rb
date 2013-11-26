@@ -8,7 +8,7 @@ feature "Tickets" do
     @client2 = FactoryGirl.create(:client, name: "Luan")
     role = FactoryGirl.create(:role, name: "Colaborador")
     @user = FactoryGirl.create(:user, role: role)
-    @ticket  = FactoryGirl.create(:ticket, client: @client2)
+    @ticket  = FactoryGirl.create(:ticket, client: @client2, user: @user)
   end
 
   scenario "As admin, I want to see the all the tickets" do

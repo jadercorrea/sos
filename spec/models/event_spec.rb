@@ -10,7 +10,9 @@ describe Event do
       end
 
       it "return event of the current month" do
-        Event.this_month.to_a.should == [@event]
+        year = @event.created_at.year
+        month = @event.created_at.month
+        Event.this_month(year, month).to_a.should == [@event]
       end
     end
   end
