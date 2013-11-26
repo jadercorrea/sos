@@ -11,8 +11,12 @@
         Cliente: <%= @ticket.client.name %>
       <% end %>
     <% else %>
-      <%= f.label :client_id, "Cliente" %><br>
-      <%= f.select :client_id, options_for_select(@clients, @ticket.client_id) %>
+      <% if !admin? && !colaborator? %>
+        <%= f.hidden_field :client_id, value: current_user.client_id %>
+      <% else %>
+        <%= f.label :client_id, "Cliente" %><br>
+        <%= f.select :client_id, options_for_select(@clients, @ticket.client_id) %>
+      <% end %>
     <% end %>
   </div>
 

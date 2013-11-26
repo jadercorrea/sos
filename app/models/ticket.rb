@@ -10,6 +10,4 @@ class Ticket < ActiveRecord::Base
   accepts_nested_attributes_for :messages, reject_if: proc { |attrs|
     attrs["text"].blank?
   }
-
-  validates :user, presence: true
 end

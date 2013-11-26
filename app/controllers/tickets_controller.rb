@@ -42,14 +42,10 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(params[:ticket])
     @ticket.messages.first.user = current_user
 
-    respond_to do |format|
-      if @ticket.save
-        format.html { redirect_to tickets_path, notice: 'Ticket was successfully created.' }
-        format.json { render json: @ticket, status: :created, location: @ticket }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+    if @ticket.save
+      redirect_to tickets_path, notice: 'Ticket was successfully created.'
+    else
+      render action: "new"
     end
   end
 
