@@ -2,8 +2,10 @@
 require "spec_helper"
 
 feature "Tickets" do
+  let(:user) { FactoryGirl.create(:user) }
+
   background do
-    login_into_admin
+    login_into_admin(user)
     @client  = FactoryGirl.create(:client, name: "Buiu")
     @client2 = FactoryGirl.create(:client, name: "Luan")
     role = FactoryGirl.create(:role, name: "Colaborador")
@@ -46,36 +48,48 @@ feature "Tickets" do
       visit edit_ticket_path(@ticket)
     end
 
-    scenario "As admin, I want to edit ticket's status" do
-      page.should have_content "Luan"
-      page.should have_content "Pendente"
+    context "As a client" do
+      let(:user) { FactoryGirl.create(:user, :client) }
 
-      select "Em andamento", from: "Status"
-      # save_and_open_page
-      select @another_user.name, from: "Colaborador"
-      click_button "Enviar"
-      page.should have_content "Luan"
-      page.should have_content "Em andamento"
+      scenario "I can't change the ticket's client" do
+        page.should_not have_selector "#ticket_client_id"
+        page.should have_content "Cliente: #{@ticket.client.name}"
+      end
     end
 
-    scenario "As admin, I want to add messages to a ticket" do
-      first_message = @ticket.messages.first
-      within ".message_#{first_message.id}" do
-        page.should have_content @another_user.name
+    context "As an admin" do
+      scenario "I want to edit ticket's status" do
+        page.should have_selector "#ticket_client_id"
+        page.should have_content "Luan"
+        page.should have_content "Pendente"
+
+        select "Em andamento", from: "Status"
+        # save_and_open_page
+        select @another_user.name, from: "Colaborador"
+        click_button "Enviar"
+        page.should have_content "Luan"
+        page.should have_content "Em andamento"
       end
 
-      page.should have_content "This is a ticket message"
+      scenario "I want to add messages to a ticket" do
+        first_message = @ticket.messages.first
+        within ".message_#{first_message.id}" do
+          page.should have_content @another_user.name
+        end
 
-      fill_in "message_field", with: "My second message"
-      click_button "Enviar"
+        page.should have_content "This is a ticket message"
 
-      second_message = @ticket.messages.last
-      within ".message_#{second_message.id}" do
-        page.should have_content @user.name
+        fill_in "message_field", with: "My second message"
+        click_button "Enviar"
+
+        second_message = @ticket.messages.last
+        within ".message_#{second_message.id}" do
+          page.should have_content @user.name
+        end
+        page.should have_content "This is a ticket message"
+        page.should have_content "My second message"
+        current_path.should == edit_ticket_path(@ticket)
       end
-      page.should have_content "This is a ticket message"
-      page.should have_content "My second message"
-      current_path.should == edit_ticket_path(@ticket)
     end
   end
 
