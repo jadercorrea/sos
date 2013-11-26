@@ -5,5 +5,9 @@ FactoryGirl.define do
     trait :colaborator do
       name "Colaborador"
     end
+
+    trait :client do
+      name "Cliente"
+    end
   end
 end

@@ -5,5 +5,13 @@ FactoryGirl.define do
     association :role
     password "123456"
     password_confirmation "123456"
+
+    trait :colaborator do
+      association :role, :colaborator
+    end
+
+    trait :client do
+      association :role, :client
+    end
   end
 end
