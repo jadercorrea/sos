@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>S-GOS</title>
+  <title>SOS</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,7 @@
 
 <div class='main'>
 	<div class='header'>
-		<h1>S-GOS</h1>
+		<h1>SOS</h1>
     <p class='slogan'>Sistema de Gerenciamento de Ordens de Serviço </p>
 	</div>
 	<div class='body'>
@@ -21,22 +21,18 @@
 		<div class='menu'>
 			<h2 class='hide'>Menu:</h2>
 			<ul>
-        <li><%= link_to 'Eventos', events_path, class: current("events")  %> </li>
-
-        <li><%= link_to 'Tickets', tickets_path, class: current("tickets")  %> </li>
 
         <li><%= link_to 'Ordens de Serviço', service_orders_path, class: current("service_orders") %> </li>
-        
+        <li><%= link_to 'Eventos', events_path, class: current("events")  %> </li>
+        <li><%= link_to 'Tickets', tickets_path, class: current("tickets")  %> </li>
+
 				<% if admin? %>
           <li><%= link_to 'Relatórios', reports_path, class: current("reports")  %> </li>
         <% end %>
-				
         <% if admin? %>
-          <li><%= link_to 'Roles', roles_path, class: current("roles")  %> </li>
           <li><%= link_to 'Clientes', clients_path, class: current("clients")  %> </li>
           <li><%= link_to 'Usuários', users_path, class: current("users")  %> </li>
 			 	<% end %>
-        
         <% if colaborator? || client? %>
           <li><%= link_to 'Meu Perfil', user_path(current_user), class: current("users")  %> </li>
         <% end %>
@@ -49,10 +45,6 @@
 </div>
 </body>
   <div class='footer'>
-    <div class="tit_rodape">Todos os direitos reservados &#169;2013 - Desenvolvido por Luan Jodar.</div>
+    <div class="tit_rodape">Todos os direitos reservados &#169;2013.</div>
   </div>
 </html>
-
-<!--<%= params.inspect %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>-->

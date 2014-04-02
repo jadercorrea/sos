@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20131124040815) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "events", force: true do |t|
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20131124040815) do
 
   create_table "roles", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "service_orders", force: true do |t|
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20131124040815) do
     t.string   "other_billable_hours"
     t.text     "description"
     t.text     "comment"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "total_time"
   end
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20131124040815) do
   create_table "ticket_messages", force: true do |t|
     t.string   "text"
     t.integer  "ticket_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
   end
 
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20131124040815) do
 
   create_table "tickets", force: true do |t|
     t.integer  "client_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "status"
     t.string   "title"
     t.integer  "user_id"
@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(version: 20131124040815) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "role_id"
     t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: ""
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 20131124040815) do
     t.datetime "confirmed_at"
     t.string   "confirmation_token"
     t.datetime "confirmation_sent_at"
-    t.datetime "invitation_created_at"
     t.integer  "client_id"
   end
 
