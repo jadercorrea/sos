@@ -15,7 +15,7 @@
 	</div>
 	<div class='body'>
     <div class="user_current">
-      Olá <%= current_user.role.name %><br />
+      Olá <%= current_user.name.capitalize %><br />
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
     </div>
 		<div class='menu'>
