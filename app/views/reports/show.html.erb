@@ -1,38 +1,64 @@
-<table>
-<h2>&nbsp;Colaboradores</h2>
-  <tr>
-    <th>Nome</th>
-    <th>Total de Horas</th>
-  </tr>
+<% if admin? || colaborator? %>
+  <table>
+    <h2>&nbsp;Colaboradores</h2>
+    <tr>
+      <th>Nome</th>
+      <th>Total de Horas</th>
+    </tr>
 
-<% @users.each do |user| %>
-  <tr class="user_<%= user.id %> <%=cycle('even', 'odd')%>">
-    <td class="cal_hrs_nm">
-      <%= user.name %>
-    </td>
-    <td class="cal_hrs"> 
-      <%= user.total_time %>
-    </td>
-  </tr>
+    <% if admin? %>
+      <% @users.each do |user| %>
+        <tr class="user_<%= user.id %> <%=cycle('even', 'odd')%>">
+          <td class="cal_hrs_nm">
+            <%= user.name.capitalize %>
+          </td>
+          <td class="cal_hrs"> 
+            <%= user.total_time %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr class="user_<%= current_user.id %> <%=cycle('even', 'odd')%>">
+        <td class="cal_hrs_nm">
+          <%= current_user.name.capitalize %>
+        </td>
+        <td class="cal_hrs"> 
+          <%= current_user.total_time %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>
-</table>
 
-<table>
-<h2>&nbsp;Clientes </h2>
-  <tr>
-    <th>Nome</th>
-    <th>Total de Horas</th>
-  </tr>
+<% if admin? || client? %>
+  <table>
+    <h2>&nbsp;Clientes </h2>
+    <tr>
+      <th>Nome</th>
+      <th>Total de Horas</th>
+    </tr>
 
-<% @clients.each do |client| %>
-  <tr class="client_<%= client.id %> <%=cycle('even', 'odd')%>">
-    <td class="cal_hrs_nm">
-      <%= client.name %>
-    </td>
-    <td class="cal_hrs">
-       <%= client.total_time %>
-    </td>
-  </tr>
+    <% if admin? %>
+      <% @clients.each do |client| %>
+        <tr class="client_<%= client.id %> <%=cycle('even', 'odd')%>">
+          <td class="cal_hrs_nm">
+            <%= client.name.capitalize %>
+          </td>
+          <td class="cal_hrs">
+            <%= client.total_time %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr class="user_<%= current_user.id %> <%=cycle('even', 'odd')%>">
+        <td class="cal_hrs_nm">
+          <%= current_user.name.capitalize %>
+        </td>
+        <td class="cal_hrs">
+          <%= Client.find_by_name([current_user.name]).total_time %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>
-</table>
 <%= paginate @clients %>

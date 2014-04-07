@@ -23,12 +23,11 @@
 			<ul>
 
         <li><%= link_to 'Ordens de Serviço', service_orders_path, class: current("service_orders") %> </li>
-        <li><%= link_to 'Eventos', events_path, class: current("events")  %> </li>
+        <li><%= link_to 'Agendas', events_path, class: current("events")  %> </li>
         <li><%= link_to 'Tickets', tickets_path, class: current("tickets")  %> </li>
 
-				<% if admin? %>
-          <li><%= link_to 'Relatórios', reports_path, class: current("reports")  %> </li>
-        <% end %>
+        <li><%= link_to 'Relatórios', reports_path, class: current("reports")  %> </li>
+
         <% if admin? %>
           <li><%= link_to 'Clientes', clients_path, class: current("clients")  %> </li>
           <li><%= link_to 'Usuários', users_path, class: current("users")  %> </li>

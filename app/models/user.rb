@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, on: :creation
   validates :email, uniqueness: true
 
-  scope :colaborators, -> { joins(:role).where("roles.name = ?", "Colaborador") }
+  scope :colaborators, -> { joins(:role).where("roles.name in (?)",["Colaborador","Admin"]) }
   scope :as_clients, -> { joins(:role).where("roles.name = ?", "Cliente") }
 
   def total_time
