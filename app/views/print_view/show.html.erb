@@ -6,127 +6,162 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-
-    <table class="table-print">
-      <tr>
-        <td> <%= image_tag('company_logo.jpg')%> </td>
-        <td class="td"><b>Service Order: <%= @service_order.id %> </b></td>
-      </tr>
-    </table>
-
-    <table class="table-print">
-      <td></td>
-    </table>
-
-    <table class="table-print">
-      <table class="table-print">
-        <td class="td-id">Cliente:</td>
-        <td class="td-data"><%= @service_order.client.name %></td>
-      </table>
-      <table class="table-print">
+    <table class="table-print" border="1px">
+      <tbody>
         <tr>
-          <td class="td-id">Modulo:</td>
-          <td class="td-data"><%= @service_order.module %></td>
-          <td class="td-id">Motivo:</td>
-          <td class="td-data"><%= @service_order.reason %></td>
+          <td border="1px"> <%= image_tag('company_logo.jpg')%> </td>
+          <td class="td" border="1px"><b>Service Order: <%= @service_order.id %> </b></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table-print" border="1px">
+      <table class="table-print" border="1px">
+        <tbody>
+          <tr>
+            <td class="td-id" border="1px">Cliente:</td>
+            <td class="td-data" border="1px"><%= @service_order.client.name %></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table-print" border="1px">
+        <tbody>
+          <tr>
+            <td class="td-id" border="1px">Modulo:</td>
+            <td class="td-data" border="1px"><%= @service_order.module %></td>
+            <td class="td-id" border="1px">Motivo:</td>
+            <td class="td-data" border="1px"><%= @service_order.reason %></td>
+          </tr>
+          <tr>
+            <td class="td-id" border="1px">Projeto:</td>
+            <td class="td-data" border="1px"><%= @service_order.project %></td>
+            <td class="td-id" border="1px">Solicitante:</td>
+            <td class="td-data" border="1px"><%= @service_order.requestor %></td>
+          </tr>
+        </tbody>
+      </table>
+    </table>
+
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr>
+          <td border="1px"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr>
+          <td class="td-id" border="1px">Data:</td>
+          <td class="td-data" border="1px"><%= date(@service_order.date) %></td>
+          <td class="td-id" border="1px">Inicio:</td>
+          <td class="td-data" border="1px"><%= @service_order.start_time %></td>
+          <td class="td-id" border="1px">Outros (+):</td>
+          <td class="td-data" border="1px"><%= @service_order.other_billable_hours %></td>
         </tr>
         <tr>
-          <td class="td-id">Projeto:</td>
-          <td class="td-data"><%= @service_order.project %></td>
-          <td class="td-id">Solicitante:</td>
-          <td class="td-data"><%= @service_order.requestor %></td>
+          <td class="td-id" border="1px">Analista:</td>
+          <td class="td-data" border="1px"><%= @service_order.user.name %></td>
+          <td class="td-id" border="1px">Fim:</td>
+          <td class="td-data" border="1px"><%= @service_order.end_time %></td>
+          <td class="td-id" border="1px">Outros (-):</td>
+          <td class="td-data" border="1px"><%= @service_order.non_billable_hours %></td>
         </tr>
-      </table>
+        <table class="table-print" border="1px">
+          <tbody>
+            <tr>
+              <td class="td-id" border="1px">Total:</td>
+              <td class="td-data" border="1px"><%= @service_order.total_time %></td>
+            </tr>
+          </tbody>
+        </table>
+      </tbody>
     </table>
 
-    <table class="table-print">
-      <td></td>
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr><td></td></tr>
+      </tbody>
     </table>
 
-    <table class="table-print">
-      <tr>
-        <td class="td-id">Data:</td>
-        <td class="td-data"><%= date(@service_order.date) %></td>
-        <td class="td-id">Inicio:</td>
-        <td class="td-data"><%= @service_order.start_time %></td>
-        <td class="td-id">Outros (+):</td>
-        <td class="td-data"><%= @service_order.other_billable_hours %></td>
-      </tr>
-      <tr>
-        <td class="td-id">Analista:</td>
-        <td class="td-data"><%= @service_order.user.name %></td>
-        <td class="td-id">Fim:</td>
-        <td class="td-data"><%= @service_order.end_time %></td>
-        <td class="td-id">Outros (-):</td>
-        <td class="td-data"><%= @service_order.non_billable_hours %></td>
-      </tr>
-      <table class="table-print">
-        <td class="td-id">Total:</td>
-        <td class="td-data"><%= @service_order.total_time %> </td>
-      </table>
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr>
+          <td class="td-id" border="1px">Atividades:</td>
+        </tr>
+        <tr>
+          <td class="td-data" border="1px"><%= raw@service_order.description.gsub(/\n/, "<br>") %>
+          <br>
+          <br>
+        </td>
+      </tbody>
     </table>
 
-    <table class="table-print">
-      <tr><td></td></tr>
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr><td></td></tr>
+      </tbody>
     </table>
 
-    <table class="table-print">
-      <tr>
-        <td class="td-data">Atividades:</td>
-      </tr>
-      <tr>
-        <td class="td-data"><%= raw@service_order.description.gsub(/\n/, "<br>") %>
-        <br>
-        <br>
-      </td>
-    </tr>  
-  </table>
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr>
+          <td class="td-data" border="1px">Observa&ccedil;&otilde;es:</td>
+        </tr>
+        <tr>
+          <td class="td-data" border="1px">
+            <%= raw@service_order.comment.gsub(/\n/, "<br>") %>
+            <br>
+            <br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
 
-  <table class="table-print">
-    <tr><td></td></tr>
-  </table>
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr>
+          <td class="td-data" border="1px">
+            N&atilde;o h&aacute; restri&ccedil;&otilde;es e/ou observa&ccedil;&otilde;es sobre dados contidos nesta Ordem de Servi&ccedil;o. Alertamos que caso o 
+            cliente n&atilde;o 
+            se pronuncie, concordando ou n&atilde;o com o exposto, no prazo de 48 horas da data da emiss&atilde;o desta, seja via telefone, fax ou e-mail, perder&aacute; o direito de reclama&ccedil;&atilde;o.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
 
-  <table class="table-print">
-    <tr>
-      <td class="td-data">Observa&ccedil;&otilde;es:</td>
-    </tr>
-    <tr>
-      <td class="td-data">
-        <%= raw@service_order.comment.gsub(/\n/, "<br>") %>
-        <br>
-        <br>
-      </td>
-    </tr>  
-  </table>
-  <br>  
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
 
-  <table class="table-print">
-    <tr>
-      <td class="td-data">
-        N&atilde;o h&aacute; restri&ccedil;&otilde;es e/ou observa&ccedil;&otilde;es sobre dados contidos nesta Ordem de Servi&ccedil;o. Alertamos que caso o 
-        cliente n&atilde;o 
-        se pronuncie, concordando ou n&atilde;o com o exposto, no prazo de 48 horas da data da emiss&atilde;o desta, seja via telefone, fax ou e-mail, perder&aacute; o direito de reclama&ccedil;&atilde;o.
-      </td>
-    </tr>
-  </table>
-  <br>
+    <br>
+    <br>
 
-  <table class="table-print">
-    <td></td>
-  </table>
+    <table class="table-print" border="1px">
+      <tbody>
+        <tr>
+          <td class="td"><%= @service_order.requestor %> - <%= @service_order.client.name %></td>
+        </tr>
+      </tbody>
+    </table>
 
-  <br>
-  <br>
-
-  <table class="table-print">
-    <td class="td"><%= @service_order.requestor %> - <%= @service_order.client.name %></td>
-  </table>
-
-  <br>
-  <br>
-  <br>
-  <br>
-</body>
+    <br>
+    <br>
+    <br>
+    <br>
+  </body>
 </html>
