@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bem vindo ao portal SOS Cloud App, <%= @user.name %></h1>
+    <p>
+      Voce foi registrado como usuario no portal SOS Cloud App.
+      <br>
+      Seu login: <%= @user.email %>
+      <br>
+      Sua senha: <%= @user.password %> 
+    </p>
+    <br>
+    <p>
+      Para logar no site, siga este link: <%= @url %>.
+    </p>
+  </body>
+</html>
