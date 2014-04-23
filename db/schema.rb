@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131124040815) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clients", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -30,9 +33,9 @@ ActiveRecord::Schema.define(version: 20131124040815) do
     t.integer  "ticket_id"
   end
 
-  add_index "events", ["client_id"], name: "index_events_on_client_id"
-  add_index "events", ["ticket_id"], name: "index_events_on_ticket_id"
-  add_index "events", ["user_id"], name: "index_events_on_user_id"
+  add_index "events", ["client_id"], name: "index_events_on_client_id", using: :btree
+  add_index "events", ["ticket_id"], name: "index_events_on_ticket_id", using: :btree
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -59,7 +62,7 @@ ActiveRecord::Schema.define(version: 20131124040815) do
     t.string   "total_time"
   end
 
-  add_index "service_orders", ["client_id"], name: "index_service_orders_on_client_id"
+  add_index "service_orders", ["client_id"], name: "index_service_orders_on_client_id", using: :btree
 
   create_table "ticket_messages", force: true do |t|
     t.string   "text"
@@ -69,8 +72,8 @@ ActiveRecord::Schema.define(version: 20131124040815) do
     t.integer  "user_id"
   end
 
-  add_index "ticket_messages", ["ticket_id"], name: "index_ticket_messages_on_ticket_id"
-  add_index "ticket_messages", ["user_id"], name: "index_ticket_messages_on_user_id"
+  add_index "ticket_messages", ["ticket_id"], name: "index_ticket_messages_on_ticket_id", using: :btree
+  add_index "ticket_messages", ["user_id"], name: "index_ticket_messages_on_user_id", using: :btree
 
   create_table "tickets", force: true do |t|
     t.integer  "client_id"
@@ -81,9 +84,9 @@ ActiveRecord::Schema.define(version: 20131124040815) do
     t.integer  "user_id"
   end
 
-  add_index "tickets", ["client_id"], name: "index_tickets_on_client_id"
-  add_index "tickets", ["status"], name: "index_tickets_on_status"
-  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
+  add_index "tickets", ["client_id"], name: "index_tickets_on_client_id", using: :btree
+  add_index "tickets", ["status"], name: "index_tickets_on_status", using: :btree
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -112,10 +115,10 @@ ActiveRecord::Schema.define(version: 20131124040815) do
     t.integer  "client_id"
   end
 
-  add_index "users", ["client_id"], name: "index_users_on_client_id"
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["client_id"], name: "index_users_on_client_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
