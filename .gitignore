@@ -15,6 +15,7 @@
 /tmp
 /tmp/*
 /tmp/cache
+*.DS_Store
 
 # Ignore database.
 config/database.yml
