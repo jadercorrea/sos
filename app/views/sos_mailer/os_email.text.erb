@@ -1,0 +1,12 @@
+Service Order: 											<%= @service_order.id %>
+Cliente:												<%= @service_order.client.name %>
+Modulo:  <%= @service_order.module %>	Motivo:			<%= @service_order.reason %>
+Projeto: <%= @service_order.project %>	Solicitante:	<%= @service_order.requestor %>
+Data:    <%= @service_order.date.strftime("%d/%m/%Y")%>	Inicio:	<%= @service_order.start_time %>	Outros (+):	<%= @service_order.other_billable_hours %>
+Analista: <%= @service_order.user.name %>	Fim:	<%= @service_order.end_time %>		Outros (-):	<%= @service_order.non_billable_hours %>
+Total:	 <%= @service_order.total_time %>
+Atividades:
+<%= raw@service_order.description.gsub(/\n/, "<br>") %>
+
+Observações:
+Não há restrições e/ou observações sobre dados contidos nesta Ordem de Serviço. Alertamos que caso o cliente não se pronuncie, concordando ou não com o exposto, no prazo de 48 horas da data da emissão desta, seja via telefone, fax ou e-mail, perderá o direito de reclamação.

@@ -5,7 +5,6 @@ class ServiceOrdersController < ApplicationController
   # GET /service_orders.json
   def index
     if current_user.client?
-      # @service_orders = ServiceOrder.where(client_id: current_user.client_id).all
       @service_orders = current_user.client.service_orders.page(params['page']).per(10)
     elsif current_user.colaborator?
       @service_orders = current_user.service_orders.page(params['page']).per(10)
@@ -14,7 +13,7 @@ class ServiceOrdersController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @service_order }
     end
   end
@@ -25,7 +24,7 @@ class ServiceOrdersController < ApplicationController
     @service_order = ServiceOrder.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @service_order }
     end
   end
@@ -36,7 +35,7 @@ class ServiceOrdersController < ApplicationController
     @service_order = ServiceOrder.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.json { render json: @service_order }
     end
   end
@@ -53,6 +52,7 @@ class ServiceOrdersController < ApplicationController
 
     respond_to do |format|
       if @service_order.save
+        SosMailer.os_email(@service_order, "incluida").deliver
         format.html { redirect_to @service_order, notice: 'Service order was successfully created.' }
         format.json { render json: @service_order, status: :created, location: @service_order }
       else
@@ -68,6 +68,7 @@ class ServiceOrdersController < ApplicationController
     @service_order = ServiceOrder.find(params[:id])
 
     if @service_order.update_attributes(params[:service_order])
+      SosMailer.os_email(@service_order, "atualizada").deliver
       redirect_to @service_order, notice: 'Service order was successfully updated.'
     else
       render action: "edit"
