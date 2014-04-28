@@ -9,15 +9,15 @@ set :rails_env, "production"
 set :deploy_via, :copy
 set :keep_releases, 5
 default_run_options[:pty] = true
-server "http://sos-app.cloudapp.com", :app, :web, :db, :primary => true
+server "http://sos-app.cloudapp.net", :app, :web, :db, :primary => true
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "http://sos-app.cloudapp.com"                          # Your HTTP server, Apache/etc
-role :app, "http://sos-app.cloudapp.com"                          # This may be the same as your `Web` server
-role :db,  "http://sos-app.cloudapp.com", :primary => true # This is where Rails migrations will run
-role :db,  "http://sos-app.cloudapp.com"
+role :web, "http://sos-app.cloudapp.net"                          # Your HTTP server, Apache/etc
+role :app, "http://sos-app.cloudapp.net"                          # This may be the same as your `Web` server
+role :db,  "http://sos-app.cloudapp.net", :primary => true # This is where Rails migrations will run
+role :db,  "http://sos-app.cloudapp.net"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
