@@ -4,7 +4,6 @@ gem 'rails', '4.0.0'
 gem 'devise'
 gem 'protected_attributes'
 
-
 group :assets do
   gem 'sass-rails', '~> 4.0.0'
   gem 'coffee-rails'
@@ -24,6 +23,7 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'binding_of_caller', '0.7.2'
+  gem 'capistrano'
 end
 
 group :test do
