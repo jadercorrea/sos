@@ -3,21 +3,21 @@ set :repository,  "git@github.com:jadercorrea/serviceorder.git"
 set :deploy_to, "/var/www/serviceorder"
 set :scm, :git
 set :branch, "master"
-set :user, "azureusr"
+set :user, "azureuser"
 set :use_sudo, false
 set :rails_env, "production"
 set :deploy_via, :copy
 set :keep_releases, 5
 default_run_options[:pty] = true
-server "http://sos-app.cloudapp.net", :app, :web, :db, :primary => true
+server "sos-app.cloudapp.net", :app, :web, :db, :primary => true
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "http://sos-app.cloudapp.net"                          # Your HTTP server, Apache/etc
-role :app, "http://sos-app.cloudapp.net"                          # This may be the same as your `Web` server
-role :db,  "http://sos-app.cloudapp.net", :primary => true # This is where Rails migrations will run
-role :db,  "http://sos-app.cloudapp.net"
+role :web, "sos-app.cloudapp.net"                          # Your HTTP server, Apache/etc
+role :app, "sos-app.cloudapp.net"                          # This may be the same as your `Web` server
+role :db,  "sos-app.cloudapp.net", :primary => true # This is where Rails migrations will run
+role :db,  "sos-app.cloudapp.net"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
