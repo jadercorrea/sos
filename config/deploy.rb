@@ -36,3 +36,22 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
+
+namespace :symlinks do
+  task :themes do
+    run "rm -rf #{release_path}/public/themes/cloud"
+    run "ln -nfs #{shared_path}/themes/cloud #{release_path}/public/themes/cloud"
+  end
+
+  task :database do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+
+  task :uploads do
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+  end
+end
+
+after "deploy:finalize_update", "symlinks:database"
+after "deploy:finalize_update", "symlinks:uploads"
+after "deploy:finalize_update", "symlinks:themes"
