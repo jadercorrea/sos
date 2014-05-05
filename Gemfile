@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'devise'
 gem 'protected_attributes'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails', '~> 4.0.0'
@@ -17,7 +18,6 @@ gem 'kaminari'
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'pg'
 end
 
 group :development do
