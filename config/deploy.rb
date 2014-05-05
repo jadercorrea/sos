@@ -11,6 +11,7 @@ set :use_sudo, false
 set :rails_env, "production"
 set :deploy_via, :copy
 set :keep_releases, 5
+set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH' }
 default_run_options[:pty] = true
 server "sos-app.cloudapp.net", :app, :web, :db, :primary => true
 
