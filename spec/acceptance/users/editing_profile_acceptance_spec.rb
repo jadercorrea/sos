@@ -36,7 +36,6 @@ feature "Users profile" do
     fill_in "Email",    with: "juan@altavista.com"
     fill_in "Senha", with: "12345678" # new password
     click_button "Login"
-    page.should have_content("Roles")
     page.should have_content("Logout")
   end
 end

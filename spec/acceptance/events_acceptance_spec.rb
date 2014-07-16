@@ -10,7 +10,7 @@ feature "Events" do
 
   scenario "As admin, I want to create an event" do
     Timecop.travel(Time.utc(2013, 10, 24, 10, 0, 0)) do
-      click_link "Eventos"
+      click_link "Agendas"
       click_link "new_event"
 
       fill_in "event_title", with: "Meu evento"

@@ -50,12 +50,12 @@
         </tr>
       <% end %>
     <% else %>
-      <tr class="user_<%= current_user.id %> <%=cycle('even', 'odd')%>">
+      <tr class="user_<%= current_user.client.id %> <%=cycle('even', 'odd')%>">
         <td class="cal_hrs_nm">
-          <%= current_user.name.capitalize %>
+          <%= current_user.client.name.capitalize %>
         </td>
         <td class="cal_hrs">
-          <%= Client.find_by_name([current_user.name]).total_time %>
+          <%= Client.find_by_name([current_user.client.name]).total_time %>
         </td>
       </tr>
     <% end %>

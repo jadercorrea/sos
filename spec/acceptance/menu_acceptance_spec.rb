@@ -7,8 +7,7 @@ feature "Correct menus" do
     page.should have_content("Tickets")
     page.should have_content("Clientes")
     page.should have_content("Usuários")
-    page.should have_content("Roles")
-    page.should have_content("Eventos")
+    page.should have_content("Agendas")
     page.should have_content("Relatórios")
     page.should have_content("Logout")
   end
@@ -21,7 +20,8 @@ feature "Correct menus" do
     page.should have_content("Ordens de Serviço")
     page.should have_content("Tickets")
     page.should have_content("Meu Perfil")
-    page.should have_content("Eventos")
+    page.should have_content("Agendas")
+    page.should have_content("Relatórios")
     page.should have_content("Logout")
   end
 
@@ -33,7 +33,8 @@ feature "Correct menus" do
     page.should have_content("Ordens de Serviço")
     page.should have_content("Tickets")
     page.should have_content("Meu Perfil")
-    page.should have_content("Eventos")
+    page.should have_content("Agendas")
+    page.should have_content("Relatórios")
     page.should have_content("Logout")
   end
 

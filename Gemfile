@@ -18,12 +18,15 @@ gem 'kaminari'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 group :development do
   gem 'quiet_assets'
   gem 'binding_of_caller', '0.7.2'
   gem 'capistrano'
+  gem 'pry-rails'
 end
 
 group :test do

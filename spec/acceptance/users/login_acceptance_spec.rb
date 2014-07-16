@@ -12,7 +12,6 @@ feature "Users login" do
     fill_in "Senha", with: "123456"
 
     click_button "Login"
-    page.should have_content("Roles")
     page.should have_content("Logout")
   end
 end

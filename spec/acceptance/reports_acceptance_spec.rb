@@ -13,16 +13,15 @@ feature "Reports" do
     FactoryGirl.create(:service_order, user: @colaborator, total_time: "1:20")
   end
 
-  scenario "As admin, I see the total worked hours" do
+  scenario "As admin, I see the colaborator and client total hours" do
     click_link "Relatórios"
     current_path.should == reports_path
 
-    page.should_not have_selector ".user_#{@client.id}"
-    page.should_not have_selector ".user_#{@user.id}"
+    page.should have_content "#{@colaborator.name}"
+    page.should have_content "4:40"
 
-    within ".user_#{@colaborator.id}" do
-      page.should have_content "#{@client.name}"
-      page.should have_content "4:40"
-    end
+    page.should have_content "#{@client.name}"
+    page.should have_content "2:20"
+    page.should have_content "1:20"
   end
 end

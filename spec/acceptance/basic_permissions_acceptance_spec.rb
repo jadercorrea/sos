@@ -14,6 +14,6 @@ feature "Basic permissions" do
 
     login_into_admin(colaborator)
     page.should have_content "Logout"
-    page.should_not have_content "Relatórios"
+    page.should have_content "Relatórios"
   end
 end
