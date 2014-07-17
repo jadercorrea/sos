@@ -55,6 +55,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    colorize (0.7.3)
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
     devise (3.0.1)
@@ -86,6 +87,12 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    konacha (3.2.3)
+      actionpack (>= 3.1, < 5)
+      capybara
+      colorize
+      railties (>= 3.1, < 5)
+      sprockets
     launchy (2.3.0)
       addressable (~> 2.3)
     libv8 (3.11.8.17)
@@ -213,6 +220,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   kaminari
+  konacha
   launchy
   pg
   poltergeist (= 1.0.2)

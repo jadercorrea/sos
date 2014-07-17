@@ -20,6 +20,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
   gem 'pry-nav'
+  gem 'konacha'
 end
 
 group :development do
