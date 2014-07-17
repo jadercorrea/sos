@@ -3,22 +3,12 @@ class EventsController < ApplicationController
   before_action :load_resources, only: [:new, :edit, :update, :create]
 
   def index
-    year = (params[:year] || Time.now.year).to_i
-    month = (params[:month] || Time.now.month).to_i
-
-    if current_user.admin? || current_user.colaborator?
-      @events = Event.this_month(year, month).to_a
-    elsif current_user.client.present?
-      @events = current_user.client.events.this_month(year, month).to_a
-    else
-      @events = []
-    end
+    filter_per_user_role(current_user)
   end
 
   def show
   end
 
-  # GET /events/new
   def new
     @event = Event.new
 
@@ -30,59 +20,58 @@ class EventsController < ApplicationController
     end
   end
 
-  # GET /events/1/edit
   def edit
   end
 
-  # POST /events
-  # POST /events.json
   def create
     @event = Event.new(event_params.merge(user_id: current_user.id))
 
     if @event.save
       redirect_to events_url, notice: 'Event was successfully created.'
     else
-      render action: 'new'
+      render :new
     end
   end
 
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: 'Event was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /events/1
-  # DELETE /events/1.json
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
-    end
+    redirect_to events_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:title, :description, :start_datetime, :client_id, :ticket_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:title, :description, :start_datetime, :client_id, :ticket_id)
+  end
 
-    def load_resources
-      @clients = Client.all.map { |m| [m.name, m.id] }
-      @users = User.colaborators.to_a.map { |m| [m.name, m.id] }
+  def load_resources
+    @clients = Client.all.map { |m| [m.name, m.id] }
+    @users = User.colaborators.to_a.map { |m| [m.name, m.id] }
+  end
+
+  def filter_per_user_role(current_user)
+    year = (params[:year] || Time.now.year).to_i
+    month = (params[:month] || Time.now.month).to_i
+
+    if current_user.admin? || current_user.colaborator?
+      @events = Event.this_month(year, month).to_a
+    elsif current_user.client.present?
+      @events = current_user.client.events.this_month(year, month).to_a
+    else
+      @events = []
     end
+  end
 end
