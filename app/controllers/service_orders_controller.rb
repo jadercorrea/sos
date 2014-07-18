@@ -2,7 +2,7 @@ class ServiceOrdersController < ApplicationController
   before_filter :load_resources, only: [:new, :edit, :update, :create]
 
   def index
-    filter_per_user_role(current_user)
+    serviceorders_per_user_role(current_user)
   end
 
   def show
@@ -53,13 +53,15 @@ class ServiceOrdersController < ApplicationController
     @users = User.colaborators.to_a.map { |n| [n.name, n.id] }
   end
 
-  def filter_per_user_role(current_user)
-    if current_user.client?
-      @service_orders = current_user.client.service_orders.page(params['page']).per(10)
-    elsif current_user.colaborator?
-      @service_orders = current_user.service_orders.page(params['page']).per(10)
-    else
-      @service_orders = ServiceOrder.page(params['page']).per(10)
-    end
+  def serviceorders_per_user_role(user)
+    entity = "ServiceOrder"
+    entity = "current_user.client.service_orders" if user.client?
+    entity = "current_user.service_orders" if user.colaborator?
+
+    @service_orders = load_service_orders(entity)
+  end
+
+  def load_service_orders(entity)
+    eval("#{entity}.page(params['page']).per(10)")
   end
 end
