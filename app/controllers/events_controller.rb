@@ -62,16 +62,16 @@ class EventsController < ApplicationController
     @users = User.colaborators.to_a.map { |m| [m.name, m.id] }
   end
 
-  def filter_per_user_role(current_user)
+  def filter_per_user_role(user)
+    entity = ""
+    entity = "Event" if user.admin?
+    entity ||= "user.client.events" if user.colaborator?
+    @events = load_events(entity)
+  end
+
+  def load_events(entity)
     year = (params[:year] || Time.now.year).to_i
     month = (params[:month] || Time.now.month).to_i
-
-    if current_user.admin? || current_user.colaborator?
-      @events = Event.this_month(year, month).to_a
-    elsif current_user.client.present?
-      @events = current_user.client.events.this_month(year, month).to_a
-    else
-      @events = []
-    end
+    entity.present? ? eval(entity+".this_month(year, month).to_a") : []
   end
 end
