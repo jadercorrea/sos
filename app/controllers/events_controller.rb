@@ -72,6 +72,6 @@ class EventsController < ApplicationController
   def load_events(entity)
     year = (params[:year] || Time.now.year).to_i
     month = (params[:month] || Time.now.month).to_i
-    entity.present? ? eval(entity+".this_month(year, month).to_a") : []
+    entity.present? ? eval("#{entity}.this_month(year, month).to_a") : []
   end
 end
