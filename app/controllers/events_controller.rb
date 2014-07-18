@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :load_resources, only: [:new, :edit, :update, :create]
 
   def index
-    filter_per_user_role(current_user)
+    events_per_user_role(current_user)
   end
 
   def show
@@ -57,12 +57,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :description, :start_datetime, :client_id, :ticket_id)
   end
 
-  def load_resources
-    @clients = Client.all.map { |m| [m.name, m.id] }
-    @users = User.colaborators.to_a.map { |m| [m.name, m.id] }
-  end
-
-  def filter_per_user_role(user)
+  def events_per_user_role(user)
     entity = ""
     entity = "Event" if user.admin?
     entity ||= "user.client.events" if user.colaborator?

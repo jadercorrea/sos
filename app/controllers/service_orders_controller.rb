@@ -48,11 +48,6 @@ class ServiceOrdersController < ApplicationController
 
   private
 
-  def load_resources
-    @clients = Client.all.map { |m| [m.name, m.id] }
-    @users = User.colaborators.to_a.map { |n| [n.name, n.id] }
-  end
-
   def serviceorders_per_user_role(user)
     entity = "ServiceOrder"
     entity = "current_user.client.service_orders" if user.client?
