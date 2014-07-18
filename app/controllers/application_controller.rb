@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
     @users = load_users
   end
 
+  def create_entity(entity)
+    @entity = eval("#{entity.capitalize}.new(params[:#{entity}])")
+
+    if @entity.save
+      redirect_to @entity, notice: "#{entity.capitalize} was successfully created."
+    else
+      render :new
+    end
+  end
+
   private
 
   def self.allow_user(role_name)

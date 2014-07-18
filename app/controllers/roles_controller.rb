@@ -17,13 +17,7 @@ class RolesController < ApplicationController
   end
 
   def create
-    @role = Role.new(params[:role])
-
-    if @role.save
-      redirect_to @role, notice: 'Role was successfully created.'
-    else
-      render :new
-    end
+    create_entity("role")
   end
 
   def update

@@ -16,13 +16,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = Client.new(params[:client])
-
-    if @client.save
-      redirect_to @client, notice: 'Client was successfully created.'
-    else
-      render :new
-    end
+    create_entity("client")
   end
 
   def update
