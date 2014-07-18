@@ -4,14 +4,6 @@ class StringTime
   end
 
   def total_time
-    # 1:20
-    # 2:50
-    # 3:40
-    #
-    # hours = 1 + 2 + 3
-    # minutes = 20 + 50 + 40
-    # 6:110
-
     decimal_minutes = (minutes.to_f / 60)
     total_hours = hours + decimal_minutes.floor
     total_minutes = minutes
@@ -31,14 +23,12 @@ class StringTime
 
   def hours
     times.inject(0) do |memo, time|
-      # 1:20
       memo += time.scan(/([0-9]{1,2}):/).flatten[0].to_i
     end
   end
 
   def minutes
     times.inject(0) do |memo, time|
-      # 1:20
       memo += time.scan(/:([0-9]{1,2})/).flatten[0].to_i
     end
   end
