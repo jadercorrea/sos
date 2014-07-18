@@ -21,13 +21,7 @@ class RolesController < ApplicationController
   end
 
   def update
-    @role = Role.find(params[:id])
-
-    if @role.update_attributes(params[:role])
-      redirect_to @role, notice: 'Role was successfully updated.'
-    else
-      render :edit
-    end
+    update_entity("role")
   end
 
   def destroy

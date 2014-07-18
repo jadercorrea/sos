@@ -21,6 +21,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def update_entity(entity)
+    @entity = eval("#{entity.capitalize}.find(params[:id])")
+
+    if @entity.update_attributes(params[entity.to_sym])
+      redirect_to @entity, notice: "#{entity.capitalize} was successfully updated."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def self.allow_user(role_name)

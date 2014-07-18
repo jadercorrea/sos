@@ -20,13 +20,7 @@ class ClientsController < ApplicationController
   end
 
   def update
-    @client = Client.find(params[:id])
-
-    if @client.update_attributes(params[:client])
-      redirect_to @client, notice: 'Client was successfully updated.'
-    else
-      render :edit
-    end
+    update_entity("client")
   end
 
   def destroy
