@@ -39,4 +39,5 @@ group :test do
   gem 'timecop'
   gem 'shoulda'
   gem 'shoulda-matchers'
+  gem "codeclimate-test-reporter", require: nil
 end

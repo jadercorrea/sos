@@ -1,6 +1,7 @@
 == SOS Cloud App
 {<img src="https://travis-ci.org/jadercorrea/sos.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/jadercorrea/sos]
 {<img src="https://codeclimate.com/github/jadercorrea/sos.png" />}[https://codeclimate.com/github/jadercorrea/sos]
+{<img src="https://codeclimate.com/github/jadercorrea/sos/coverage.png" />}[https://codeclimate.com/github/jadercorrea/sos]
 
 É uma aplicacao para gerenciamento de Ordens de Servico, tickets e eventos (agendas, reunioes), com niveis de acesso Admin, Colaborador e Cliente. Desenvolvido para pequenas empresas.
 
