@@ -1,17 +1,13 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
 
-	belongs_to :role
-  belongs_to :client
-
-  has_many :service_orders
-
   attr_accessible :password, :password_confirmation, :remember_me
   attr_accessible :name, :email, :role_id, :client_id
+
+	belongs_to :role
+  belongs_to :client
+  has_many :service_orders
 
   validates :name, :email, :role_id, presence: true
   validates :password, presence: true, on: :creation
@@ -29,10 +25,6 @@ class User < ActiveRecord::Base
     role.admin?
   end
 
-  def client_name
-    client.name if client.present? 
-  end
-    
   def colaborator?
     role.colaborator?
   end
@@ -41,4 +33,7 @@ class User < ActiveRecord::Base
     role.client?
   end
 
+  def client_name
+    client.name if client.present? 
+  end
 end

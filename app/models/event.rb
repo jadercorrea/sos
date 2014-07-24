@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :client
   belongs_to :user
+  belongs_to :ticket
 
   validates :start_datetime, presence: true
 
@@ -11,6 +12,4 @@ class Event < ActiveRecord::Base
     where("start_datetime > ?", Date.new(year, month, -1).beginning_of_month)
       .where("start_datetime < ?", Date.new(year, month, -1).end_of_month)
   }
-
-  belongs_to :ticket
 end

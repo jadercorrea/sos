@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: sos_development
+
+test:
+  <<: *default
+  database: sos_test
+
+production:
+  <<: *default
+  database: sos_production
+  username: postgres
+  password: <%= ENV['SOS_DATABASE_PASSWORD'] %>

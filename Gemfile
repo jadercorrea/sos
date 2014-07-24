@@ -37,4 +37,6 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner', '1.0.1'
   gem 'timecop'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
 end

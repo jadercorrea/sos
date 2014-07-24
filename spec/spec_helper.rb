@@ -10,6 +10,16 @@ RSpec.configure do |config|
   config.filter_run wip: true
   config.run_all_when_everything_filtered = true
 
+  config.expect_with :rspec do |c|
+    c.syntax = [:should, :expect]
+  end
+
+  config.mock_with :rspec do |c|
+    c.syntax = [:should, :expect]
+  end
+
+  config.include FactoryGirl::Syntax::Methods
+
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.

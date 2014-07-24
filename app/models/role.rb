@@ -18,6 +18,6 @@ class Role < ActiveRecord::Base
   end
 
   def to_sym
-    self.name.camelize.gsub(" ", "").underscore.to_sym
+    self.name.camelize.gsub(" ", "_").underscore.to_sym
   end
 end
