@@ -3,24 +3,24 @@
 {<img src="https://codeclimate.com/github/jadercorrea/sos.png" />}[https://codeclimate.com/github/jadercorrea/sos]
 {<img src="https://codeclimate.com/github/jadercorrea/sos/coverage.png" />}[https://codeclimate.com/github/jadercorrea/sos]
 
-É uma aplicacao para gerenciamento de Ordens de Servico, tickets e eventos (agendas, reunioes), com niveis de acesso Admin, Colaborador e Cliente. Desenvolvido para pequenas empresas.
+It is an app to manage Service Orders, tickets, events (agendas, meetings), with Admin, Colaborator and Client access levels. Developed to small companies.
 
-Uso:
-usuario e senhas temporarios:
+Use:
+Temporary User and Password (provided via rake db:seed)
 admin@example.com
 123456
 
-Funcionalidades:
+Features:
 
-1. Ao incluir os usuarios, estes serão avisados por email, recebendo suas credenciais e url para acesso.
-1.1. Os usuarios estao divididos em papeis: Admim, Colaborador e Cliente. Os papeis limitam o acesso do usuario as informacoes relevantes a sua necessidade.
+1. A notification email is send when an user is included, with credentials and url to access the app.
+1.1 Users are divided in Roles: Admin, Colaborator and Client. The roles limit user to access information according to their level.
 
-2. Tickets podem ser incluidos por clientes, colaboradores e admins.
+2. All roles can include tickets.
 
-3. Eventos (agendas), podem ser visualizadas por todos os papeis
-3.1. Clientes podem verificar agendas disponiveis e solicitar marcacao.
-3.2. Colaboradores podem visualizar suas agendas e de demais colaboradores.
-3.3. Admins tem controle total.
+3. Events (agendas) visualization is allowed to all roles.
+3.1 Clients can verify available agendas and request it.
+3.2 Colaborators can visualize other colaborators and their own agendas.
+3.3 Admins have full control.
 
-3. Ordens de Serviço podem ser incluidas por Colaboradores e Admins.
-3.1 Ao incluir ou atualizar uma OS, o usuario que a inclui/atualizou recebe uma copia dela por email, para verificacao e encaminhamento para o cliente.
+4 Admins and Colaborators can include Service Orders
+4.1 An email notification is send to the current user when an OS is included or updated. 
