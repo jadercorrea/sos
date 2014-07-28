@@ -6,13 +6,13 @@
 				return false;
 			} else {
 				// Allow tab key and backspace
-				if (key.which == '0' || key.which == '8') {
+				if (key.which === '0' || key.which == '8') {
 					return true;
 				} else {
-					if (this.value.length == 5 
-    					|| (this.value.slice(0,1) == '' && key.which >= '51')
-    					|| (this.value.length == 1 && this.value.slice(0,1) == '2' && key.which >= '52')
-    					|| (this.value.length == 2 && key.which >= '54')
+					if (this.value.length === 5 
+    					|| (this.value.slice(0,1) === '' && key.which >= '51')
+    					|| (this.value.length === 1 && this.value.slice(0,1) == '2' && key.which >= '52')
+    					|| (this.value.length === 2 && key.which >= '54')
     				) {
 						return false;
     				} else {
@@ -23,7 +23,7 @@
 		});
 
 	function timeFormat(field) {
-	if (field.value.length == 2) {
+	if (field.value.length === 2) {
 		field.value += ":";
 		}
 		return true;	

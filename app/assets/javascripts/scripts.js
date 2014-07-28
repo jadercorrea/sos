@@ -16,22 +16,22 @@ $('document').ready(function() {
 
 	$("#datepicker").datepicker({
     dateFormat: 'dd/mm/yy',
-    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'
+    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sabado','Domingo'
         ],
     dayNamesMin: [
     'D','S','T','Q','Q','S','S','D'
     ],
     dayNamesShort: [
-    'Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'
+    'Dom','Seg','Ter','Qua','Qui','Sex','Sab','Dom'
     ],
-    monthNames: [  'Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro',
+    monthNames: [  'Janeiro','Fevereiro','Marco','Abril','Maio','Junho','Julho','Agosto','Setembro',
     'Outubro','Novembro','Dezembro'
     ],
     monthNamesShort: [
     'Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set',
     'Out','Nov','Dez'
     ],
-    nextText: 'Próximo',
+    nextText: 'Proximo',
     prevText: 'Anterior'
     });
 

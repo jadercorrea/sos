@@ -1,6 +1,6 @@
 (function($) {
   $.fn.total_os = function() {
-    $(this).change(function(key){
+    $(this).change(function(){
       var startField = $('#service_order_start_time');
       var endField = $('#service_order_end_time');
       var minusField = $('#service_order_non_billable_hours');
@@ -40,12 +40,12 @@
 
                if (total.toString().match(RegExp) !== null){
                  min = parseInt(total.toString().match(RegExp)[2], '10');
-                 min = parseInt(Math.round((min*30)/50)).toString();
+                 min = parseInt(Math.round((min*30)/50), '10').toString();
                  if (min.length === 1){
                    min = '0'+min;
                  }
                } else {
-                 if (total - (parseInt(total)) > 0 ){
+                 if (total - (parseInt(total, '10')) > 0 ){
                    min = '30';
                  } else {
                    min = '00';

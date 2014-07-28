@@ -12,9 +12,9 @@ module EventHelper
   end
 
   def next_year(month, year)
-    next_year = year 
+    next_year = year
     next_year += 1 if (month += 1) > 12
-    next_year  
+    next_year
   end
 
   def previous_month(month)
@@ -22,11 +22,11 @@ module EventHelper
     month = 12 if month < 1
     month 
   end
-      
+
   def previous_year(month, year)
-    next_year = year 
+    next_year = year
     next_year -= 1 if (month -= 1) < 1
-    next_year  
+    next_year
   end
 
   def month_name(month_number)
