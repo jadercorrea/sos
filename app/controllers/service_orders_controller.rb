@@ -24,7 +24,7 @@ class ServiceOrdersController < ApplicationController
       SosMailer.os_email(@service_order, "incluida").deliver
       redirect_to @service_order, notice: 'Service order was successfully created.'
     else
-      render action: "new"
+      render "new"
     end
   end
 

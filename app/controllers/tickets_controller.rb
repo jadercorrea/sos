@@ -26,7 +26,10 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(params[:ticket])
-    @ticket.messages.first.user = current_user
+
+    if @ticket.messages.present?
+      @ticket.messages.first.user = current_user
+    end
 
     if @ticket.save
       redirect_to tickets_path, notice: 'Ticket was successfully created.'
@@ -58,8 +61,10 @@ class TicketsController < ApplicationController
   private
 
   def ticket_user_update
-    params[:ticket][:messages_attributes].each do |key, value|
-      params[:ticket][:messages_attributes][key] = value.merge(:user_id => current_user.id)
+    if params[:ticket][:messages_attributes].present?
+      params[:ticket][:messages_attributes].each do |key, value|
+        params[:ticket][:messages_attributes][key] = value.merge(:user_id => current_user.id)
+      end
     end
   end
 

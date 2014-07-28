@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Ticket do
   describe "atrr accessibility" do
     it { should allow_mass_assignment_of :client_id }
+    it { should allow_mass_assignment_of :messages }
     it { should allow_mass_assignment_of :messages_attributes }
     it { should allow_mass_assignment_of :status }
     it { should allow_mass_assignment_of :title }
@@ -16,4 +17,9 @@ describe Ticket do
     it { should belong_to :client }
     it { should belong_to :user }
   end
+
+  describe "validations" do
+    it { should validate_presence_of :title }
+  end
+
 end

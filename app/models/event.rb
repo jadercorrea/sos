@@ -6,7 +6,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :ticket
 
-  validates :start_datetime, presence: true
+  validates :title, :client, :user, presence: true
+  validates :client_id, presence: true
 
   scope :this_month, ->(year, month){
     where("start_datetime > ?", Date.new(year, month, -1).beginning_of_month)

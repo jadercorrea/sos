@@ -6,6 +6,7 @@ FactoryGirl.define do
     end_time "09:00"
     total_time "01:00"
     description "description"
+    comment "comment"
     reason "reason"
     requestor "requestor"
     sequence(:module) { "description" }
